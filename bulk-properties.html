@@ -1,0 +1,78 @@
+<style>
+    /* 容器样式：缩小gap */
+    .blocks-container {
+        padding: 30px;
+        display: flex;
+        flex-wrap: wrap;         
+        justify-content: flex-start; 
+        gap: 10px; /* 按钮间距从15px改为10px，更紧凑 */
+    }
+
+    /* 橙色块样式：缩小内边距 */
+    .orange-block {
+        background-color: #ff9f1c;
+        color: white;
+        padding: 10px 15px; /* 上下内边距10px，左右15px（原20px，更紧凑） */
+        border-radius: 6px;
+        font-size: 16px; /* 文字大小从18px改为16px，进一步节省空间 */
+        font-weight: 500;
+        white-space: nowrap;     
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        transition: all 0.3s ease; 
+    }
+
+    /* hover 交互保持 */
+    a:hover .orange-block {
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transform: translateY(-2px);
+    }
+
+    /* 页面基础样式 */
+    body {
+        margin: 0;
+        padding: 20px;
+        font-family: Arial, sans-serif;
+    }
+    a {
+        text-decoration: none;
+    }
+</style>
+
+<div class="blocks-container">
+    <a href="青浦西虹桥 服务式公寓.html">
+        <div class="orange-block">青浦西虹桥 服务式公寓</div>
+    </a>
+    <a href="青浦赵巷 岚韵酒店.html">
+        <div class="orange-block">青浦赵巷 岚韵酒店</div>
+    </a>
+    <a href="泗泾方邻 社区商业.html">
+        <div class="orange-block">泗泾方邻 社区商业</div>
+    </a>
+    <a href="青浦 格林郡商业.html">
+        <div class="orange-block">青浦 格林郡商业</div>
+    </a>
+    <a href="松江新桥 长租公寓.html">
+        <div class="orange-block">松江新桥 长租公寓</div>
+    </a>
+    <a href="松江中山街道 社区商业.html">
+        <div class="orange-block">松江中山街道 社区商业</div>
+    </a>
+    <a href="松江永丰 长租公寓.html">
+        <div class="orange-block">松江永丰 长租公寓</div>
+    </a>
+    <a href="车墩方邻 社区商业.html">
+        <div class="orange-block">车墩方邻 社区商业</div>
+    </a>
+    <a href="徐汇 长租公寓.html">
+        <div class="orange-block">徐汇 长租公寓</div>
+    </a>
+    <a href="浦东祝桥 长租公寓.html">
+        <div class="orange-block">浦东祝桥 长租公寓</div>
+    </a>
+    <a href="闵行马桥 公寓.html">
+        <div class="orange-block">闵行马桥 公寓</div>
+    </a>
+    <a href="奉贤老南桥、老南桥 长租公寓.html">
+        <div class="orange-block">奉贤老南桥、老南桥 长租公寓</div>
+    </a>
+</div>

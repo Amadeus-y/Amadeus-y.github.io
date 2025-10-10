@@ -1,0 +1,43 @@
+    <style>
+        /* 容器样式 - 使用inline-flex让容器仅包裹内容 */
+        .blocks-container {
+            padding: 30px;
+            display: inline-flex;
+            flex-direction: column;
+            gap: 15px; /* 块之间的间距 */
+        }
+
+        /* 橙色块样式 - 关键是不设置固定宽度 */
+        .orange-block {
+            background-color: #ff9f1c; /* 更柔和的橙色 */
+            color: white;
+            padding: 12px 20px; /* 上下内边距12px，左右20px */
+            border-radius: 6px; /* 圆角效果 */
+            font-size: 18px;
+            font-weight: 500;
+            white-space: nowrap; /* 防止文字换行 */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* 轻微阴影增强立体感 */
+        }
+
+        /* 页面整体样式 */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        a {
+            text-decoration: none; /* 移除下划线 */
+        }
+    </style>
+
+    <div class="blocks-container">
+        <a href="黄埭地块.html" class="blocks-container mb-8 hover:shadow-lg hover:shadow-lg">
+        <div class="orange-block">黄埭地块</div>
+        </a>
+        <a href="姑苏区地块.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+        <div class="orange-block">姑苏区地块</div>
+        </a>
+        <a href="澹台湖地块.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+        <div class="orange-block">澹台湖地块</div>
+        </a>
+    </div>

@@ -1,0 +1,116 @@
+<style>
+        /* 基础样式重置 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            margin: 20px 0 30px;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        .project-description {
+            margin-bottom: 30px;
+            color: #555;
+        }
+
+        .project-description p {
+            margin-bottom: 15px;
+        }
+
+        .highlight {
+            color: #e63946;
+            font-weight: bold;
+        }
+
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+            overflow-x: auto;
+            display: block;
+        }
+
+        .data-table th,
+        .data-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .data-table th {
+            background-color: #f87100;
+            color: white;
+        }
+
+        .data-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        /* 图片容器样式 - 核心响应式设置 */
+        .image-container {
+            width: 100%;
+            margin-bottom: 20px;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 图片响应式设置 */
+        .responsive-image {
+            width: 100%;
+            height: auto;
+            object-fit: cover; /* 保持比例并填充容器，裁剪多余部分 */
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .responsive-image:hover {
+            transform: scale(1.02); /* 轻微放大效果，增强交互 */
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .data-table th,
+            .data-table td {
+                padding: 8px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+    <div class="image-container">
+        <img src="149.png" class="responsive-image" alt="北中环学府科创区地块位置图">
+    </div>
+    
+    <div class="image-container">
+        <img src="150.png" class="responsive-image" alt="北中环学府科创区地块规划图">
+    </div>
+    <div class="image-container">
+        <img src="151.png" class="responsive-image" alt="北中环学府科创区地块周边配套图">
+    </div>
+    <div class="image-container">
+        <img src="152.png" class="responsive-image" alt="北中环学府科创区地块参数图">
+    </div>
+    <div class="image-container">
+        <img src="153.png" class="responsive-image" alt="北中环学府科创区地块周边交通图">
+    </div>

@@ -1,0 +1,5153 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>金地集团 | 稳健发展 平衡成就跨越</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FF6B35;
+            --primary-dark: #E55A2B;
+            --primary-light: #FF8C42;
+            --secondary: #1A1A1A;
+            --accent: #F7931E;
+            --accent-light: #FFA94D;
+            --text-primary: #1A1A1A;
+            --text-secondary: #666666;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #FFF5F0;
+            --bg-tertiary: #FFE8D6;
+            --border: #FFD4B3;
+            --success: #2ECC71;
+            --warning: #F39C12;
+            --danger: #E74C3C;
+            --orange-100: #FFF5F0;
+            --orange-200: #FFE8D6;
+            --orange-300: #FFD4B3;
+            --orange-400: #FFB380;
+            --orange-500: #FF8C42;
+            --orange-600: #FF6B35;
+            --orange-700: #E55A2B;
+            --orange-800: #CC4A1E;
+        }
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        /* 导航栏样式 */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 英雄区域样式 */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23ffffff" fill-opacity="0.03"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E');
+            opacity: 0.5;
+        }
+
+        /* 卡片样式 */
+        .card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(255, 107, 53, 0.15);
+            border-color: var(--accent-light);
+        }
+
+        .card-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid var(--border);
+            background: var(--bg-secondary);
+        }
+
+        .card-body {
+            padding: 1.5rem;
+        }
+
+        /* 统计卡片样式 */
+        .stat-card {
+            background: var(--bg-primary);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--primary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(255, 107, 53, 0.15);
+        }
+
+        /* 按钮样式 */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.5rem;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(255, 107, 53, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-tertiary);
+            border-color: var(--accent-light);
+        }
+
+        /* 徽章样式 */
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .badge-primary {
+            background: rgba(255, 107, 53, 0.1);
+            color: var(--primary);
+        }
+
+        .badge-success {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--success);
+        }
+
+        .badge-warning {
+            background: rgba(243, 156, 18, 0.1);
+            color: var(--warning);
+        }
+
+        /* 图表容器样式 */
+        .chart-container {
+            position: relative;
+            height: 400px;
+            margin: 1.5rem 0;
+        }
+
+        .chart-container-sm {
+            height: 300px;
+        }
+
+        /* 时间线样式 */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-bottom: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary);
+            border-radius: 50%;
+            border: 2px solid var(--bg-primary);
+        }
+
+        /* 表格样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: var(--bg-primary);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .data-table th {
+            background: var(--bg-secondary);
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .data-table tr:hover {
+            background: var(--bg-secondary);
+        }
+
+        /* 渐变背景 */
+        .gradient-bg {
+            background: linear-gradient(135deg, var(--bg-secondary) 0%, var(--bg-tertiary) 100%);
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* 滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-secondary);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--text-secondary);
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .hero-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chart-container {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center space-x-3">
+                    <div class="w-10 h-10 bg-gradient-to-br from-orange-500 to-orange-700 rounded-lg flex items-center justify-center shadow-lg">
+                        <span class="text-white font-bold text-xl">G</span>
+                    </div>
+                    <span class="text-xl font-bold text-gray-900">金地集团</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#overview" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">企业概览</a>
+                    <a href="#business" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">业务结构</a>
+                    <a href="#performance" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">经营实力</a>
+                    <a href="#shanghai" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">上海布局</a>
+                    <a href="#项目鉴赏" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">项目鉴赏</a>
+                    <a href="#销售表现" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">销售表现</a>
+                    <a href="#投资表现" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">投资表现</a>
+                    <a href="#投资能力" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">投资能力</a>
+                    <a href="#对外合作" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">对外合作</a>
+                    <a href="#开发能力" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">开发能力</a>
+                    <a href="#trend" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">经典代建项目</a>
+                    <a href="#investment" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">优质地块</a>
+                    <a href="#合作模式" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">合作模式</a>
+
+                </div>
+                <button class="md:hidden text-gray-600 hover:text-gray-900">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页横幅 -->
+    <section class="hero-section min-h-screen flex items-center justify-center relative">
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-5xl mx-auto text-center text-white animate-fadeInUp">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">稳健发展<br>平衡成就跨越</h1>
+                <p class="text-2xl md:text-3xl mb-12 opacity-90 font-light">金地集团 · GEMDALE</p>
+                
+                <!-- 6个统计卡片 -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">TOP 10</div>
+                        <div class="text-sm opacity-80">综合实力房企</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">TOP 3</div>
+                        <div class="text-sm opacity-80">代建综合实力</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">TOP 3</div>
+                        <div class="text-sm opacity-80">21-22年上海、南京<br>销售排行</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">18-20%</div>
+                        <div class="text-sm opacity-80">18-20年ROE</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">53.2%</div>
+                        <div class="text-sm opacity-80">23年净负债率</div>
+                    </div>
+                    <div class="bg-white bg-opacity-10 backdrop-blur-sm rounded-xl p-6 border border-white border-opacity-20">
+                        <div class="text-4xl font-bold mb-2">4.36%</div>
+                        <div class="text-sm opacity-80">23年融资成本</div>
+                    </div>
+                </div>
+                
+                <a href="#overview" class="btn btn-primary text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                    探索更多 <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <i class="fas fa-chevron-down text-white text-2xl opacity-60"></i>
+        </div>
+    </section>
+
+    <!-- 企业概览 -->
+    <section id="overview" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">企业概览</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">34年稳健发展，平衡成就行业标杆</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+                <div class="space-y-8">
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-balance-scale text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">平衡发展观</h3>
+                            <p class="text-gray-600 leading-relaxed">坚持规模与效益平衡发展，短期经营目标与长期目标、利润与规模、效益与责任的平衡</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-history text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">发展历程</h3>
+                            <div class="timeline">
+                                <div class="timeline-item">
+                                    <p class="font-semibold text-lg">1988年</p>
+                                    <p class="text-gray-600">起源于深圳市福田区国资委下属企业,以深圳市福田国资委为首等的国资控股比例7.79%、第二大股东</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="font-semibold text-lg">2001年</p>
+                                    <p class="text-gray-600">登陆上交所，首批上市地产企业，稳坐地产龙头股"招保万金"的"金字招牌"</p>
+                                </div>
+                                <div class="timeline-item">
+                                    <p class="font-semibold text-lg">2021年</p>
+                                    <p class="text-gray-600">销售额突破2867亿元</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-hand-holding-heart text-orange-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">社会责任</h3>
+                            <p class="text-gray-600 leading-relaxed">金地小桔灯助学行动、弘金地慈善基金女子职业球队等，点燃希望、珍爱地球</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-6">
+                    <div class="stat-card">
+                        <i class="fas fa-chart-line text-4xl text-orange-600 mb-4"></i>
+                        <h4 class="text-3xl font-bold text-gray-900 mb-2">53.2%</h4>
+                        <p class="text-gray-600">2023年净负债率</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-percentage text-4xl text-orange-600 mb-4"></i>
+                        <h4 class="text-3xl font-bold text-gray-900 mb-2">4.36%</h4>
+                        <p class="text-gray-600">2023年融资成本</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-city text-4xl text-orange-600 mb-4"></i>
+                        <h4 class="text-3xl font-bold text-gray-900 mb-2">78</h4>
+                        <p class="text-gray-600">中国布局城市</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-globe-americas text-4xl text-orange-600 mb-4"></i>
+                        <h4 class="text-3xl font-bold text-gray-900 mb-2">8</h4>
+                        <p class="text-gray-600">美国布局城市</p>
+                    </div>
+                </div>
+            </div>
+            
+            
+                        
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 业务结构 -->
+    <section id="business" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">业务结构</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">以地产开发为主业，相关多元业务全面发展</p>
+                <div class="flex flex-col items-center gap-8 mb-16">
+                <img src="79.png" alt="业务结构图" class="w-full max-w-16xl rounded-lg shadow-md">
+                
+                
+
+            
+            
+            
+                    </div>
+                    
+                        
+    </section>
+    <section id="business" class="py-20">
+        <div class="container mx-auto px-6"></div>
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">地域布局</h2>
+             <p class="text-xl text-gray-600 max-w-3xl mx-auto">金地集团布局中国和美国;</p>
+             <p class="text-xl text-gray-600 max-w-3xl mx-auto">截止2024年底，在中国开发及持有的住宅及商用项目覆盖北京、上海、深圳、广州等78座城市；</p>
+             <p class="text-xl text-gray-600 max-w-3xl mx-auto">在美国开发项目分布纽约、波士顿、洛杉矶、旧金山、圣地亚哥、奥斯汀等东西两岸8个不同城市和地区。</p>
+            
+            
+            
+               
+                    <img src="78.jpg" alt="地域布局图" class="w-full max-w-16xl rounded-lg shadow-md">
+                </div>
+                    
+                        
+            
+        
+    </section>
+
+
+
+    <!-- 经营实力 -->
+    <section id="performance" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">经营实力</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">25Q1已偿还完全部公开债务，发展较稳健</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                    <i class="fas fa-coins text-5xl mb-6 opacity-80"></i>
+                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
+                    <p class="text-5xl font-bold mb-3">2867亿</p>
+                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
+                    <p class="text-5xl font-bold mb-3">1377万平方米</p>
+                    <p class="text-xl text-orange-200">2021年</p>
+                    <p class="text-xl text-orange-200">房企排名第10</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-orange-300 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                    <i class="fas fa-chart-line text-5xl mb-6 opacity-80"></i>
+                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
+                    <p class="text-5xl font-bold mb-3">2218亿</p>
+                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
+                    <p class="text-5xl font-bold mb-3">1020万平方米</p>
+                    <p class="text-xl text-orange-200">2022年</p>
+                    <p class="text-xl text-orange-200">房企排名第7</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-yellow-400 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                    <i class="fas fa-hand-holding-usd text-5xl mb-6 opacity-80"></i>
+                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
+                    <p class="text-5xl font-bold mb-3">1536亿</p>
+                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
+                    <p class="text-5xl font-bold mb-3">903万平方米</p>
+                    <p class="text-xl text-orange-200">2023年</p>
+                    <p class="text-xl text-orange-200">房企排名第10</p>
+                </div>
+            </div>
+            
+            <div class="mb-16">
+                <div class="grid md:grid-cols-4 gap-8">
+                <div class="card">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">总资产(亿元)</h3>
+                <img src="2.png" alt="总资产">
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">房地产销售面积(万平方米)</h3>
+                <img src="80.png" alt="房地产销售面积">
+                </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">销售业绩详情</h3>
+                <img src="81.png" alt="销售业绩详情">
+            </div>
+
+            <div class="card">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">净资产(亿元)</h3>
+                <img src="82.png" alt="净资产">
+            </div>
+            </div>
+            </div>
+            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 上海布局 -->
+    <section id="shanghai" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">上海布局</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">深耕上海20年，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目，积累了大量的客户资源，经营优势显著</p>
+                <img src="94.png">
+            </div>
+             
+            
+
+    <style>
+        /* 通用样式 */
+        body {
+            font-family: "Microsoft Yahei", sans-serif;
+            padding: 20px;
+        }
+        
+        .layout-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .text-area {
+            flex: 1;
+        }
+        
+        .text-area h3 {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin: 20px 0 10px;
+        }
+        
+        .text-area p {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+        
+        /* 项目分布轮播图样式 */
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+            overflow: hidden;
+        }
+        
+        .carousel-wrapper {
+            width: 100%;
+            height: 700px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-images {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-images img {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            object-fit: contain;
+        }
+        
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .prev-btn {
+            left: 20px;
+        }
+        
+        .next-btn {
+            right: 20px;
+        }
+        
+        .carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 10px;
+            z-index: 10;
+        }
+        
+        .carousel-indicators .indicator {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .carousel-indicators .indicator.active {
+            background-color: white;
+        }
+        
+        /* 产品能力右侧轮播图样式 */
+        .product-carousel-container {
+            width: 500px;
+        }
+        
+        .product-carousel {
+            width: 100%;
+            height: 400px;
+            overflow: hidden;
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- 项目分布轮播图 -->
+     
+    <div class="carousel-container" id="projectCarousel">
+        <section id="项目鉴赏" class="py-20">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">项目鉴赏</h2>
+        </section>
+        <div class="carousel-wrapper">
+            <div class="carousel-images"></div>
+        </div>
+        <button class="carousel-btn prev-btn">&lt;</button>
+        <button class="carousel-btn next-btn">&gt;</button>
+        <div class="carousel-indicators"></div>
+    </div>
+
+
+
+    <script>
+        // 轮播图类 - 可复用的核心逻辑
+        class Carousel {
+            // 构造函数：接收容器选择器和图片路径数组
+            constructor(containerSelector, imagePaths) {
+                // 初始化容器和元素
+                this.container = document.querySelector(containerSelector);
+                this.imagePaths = imagePaths;
+                this.carouselImages = this.container.querySelector(".carousel-images");
+                this.prevBtn = this.container.querySelector(".prev-btn");
+                this.nextBtn = this.container.querySelector(".next-btn");
+                this.indicatorsContainer = this.container.querySelector(".carousel-indicators");
+                
+                // 初始化状态
+                this.currentIndex = 0;
+                this.imageCount = imagePaths.length;
+                this.autoInterval = null;
+                
+                // 初始化轮播图
+                this.init();
+            }
+            
+            // 初始化轮播图
+            init() {
+                this.createImages();
+                this.createIndicators();
+                this.bindEvents();
+                this.startAutoPlay();
+            }
+            
+            // 创建图片元素
+            createImages() {
+                this.imagePaths.forEach((path, index) => {
+                    const img = document.createElement("img");
+                    img.src = path;
+                    img.alt = `carousel-image-${index + 1}`;
+                    this.carouselImages.appendChild(img);
+                });
+            }
+            
+            // 创建指示器
+            createIndicators() {
+                this.imagePaths.forEach((_, index) => {
+                    const indicator = document.createElement("div");
+                    indicator.classList.add("indicator");
+                    if (index === 0) {
+                        indicator.classList.add("active");
+                    }
+                    indicator.dataset.index = index;
+                    this.indicatorsContainer.appendChild(indicator);
+                });
+                this.indicators = this.container.querySelectorAll(".indicator");
+            }
+            
+            // 绑定事件
+            bindEvents() {
+                // 上一张按钮
+                this.prevBtn.addEventListener("click", () => {
+                    this.goToSlide(this.currentIndex - 1);
+                });
+                
+                // 下一张按钮
+                this.nextBtn.addEventListener("click", () => {
+                    this.goToSlide(this.currentIndex + 1);
+                });
+                
+                // 指示器点击
+                this.indicators.forEach(indicator => {
+                    indicator.addEventListener("click", () => {
+                        const index = parseInt(indicator.dataset.index);
+                        this.goToSlide(index);
+                    });
+                });
+                
+                // 鼠标移入移出控制自动播放
+                this.container.addEventListener("mouseenter", () => {
+                    this.stopAutoPlay();
+                });
+                
+                this.container.addEventListener("mouseleave", () => {
+                    this.startAutoPlay();
+                });
+            }
+            
+            // 切换到指定幻灯片
+            goToSlide(index) {
+                // 处理边界值
+                if (index < 0) {
+                    index = this.imageCount - 1;
+                } else if (index >= this.imageCount) {
+                    index = 0;
+                }
+                this.currentIndex = index;
+                
+                // 计算平移距离
+                const slideWidth = this.carouselImages.querySelector("img").offsetWidth;
+                const translateValue = -this.currentIndex * slideWidth;
+                this.carouselImages.style.transform = `translateX(${translateValue}px)`;
+                
+                // 更新指示器状态
+                this.indicators.forEach((indicator, i) => {
+                    if (i === this.currentIndex) {
+                        indicator.classList.add("active");
+                    } else {
+                        indicator.classList.remove("active");
+                    }
+                });
+            }
+            
+            // 开始自动播放
+            startAutoPlay() {
+                this.autoInterval = setInterval(() => {
+                    this.goToSlide(this.currentIndex + 1);
+                }, 3000);
+            }
+            
+            // 停止自动播放
+            stopAutoPlay() {
+                clearInterval(this.autoInterval);
+            }
+        }
+        
+        // 初始化第一个轮播图（项目分布）
+        new Carousel("#projectCarousel", [
+            "83.png",
+            "84.png",
+            "85.png",
+            "86.png",
+            "87.png",
+            "88.png"
+        ]);
+        
+       
+        
+    </script>
+</body>
+</html>
+
+        
+
+    <style>
+        /* 视频样式 */
+        video {
+            width: 80%;
+            max-width: 1200px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* 可以在这里进一步调整标题样式（如果需要） */
+        .section-title {
+            /* 已经通过内联样式设置了居中，这里可以添加其他样式 */
+            margin-top: 40px;
+            color: #2c3e50; /* 标题颜色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用与你要求相同大小的标题 -->
+    <h1 class="section-title" style="text-align: center; font-size: 28px; font-weight: bold;">泰州姜堰项目展示区规划</h1>
+
+    <!-- 视频播放区域 -->
+    <video controls poster="https://picsum.photos/1200/675?grayscale">
+        <source src="1.mp4" type="video/mp4">
+ 
+        您的浏览器不支持视频播放，请升级浏览器。
+    </video>
+
+        <style>
+        /* 视频样式 */
+        video {
+            width: 80%;
+            max-width: 1200px;
+            display: block;
+            margin: 30px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        /* 可以在这里进一步调整标题样式（如果需要） */
+        .section-title {
+            /* 已经通过内联样式设置了居中，这里可以添加其他样式 */
+            margin-top: 40px;
+            color: #2c3e50; /* 标题颜色 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 使用与你要求相同大小的标题 -->
+    <h1 class="section-title" style="text-align: center; font-size: 28px; font-weight: bold;">上海西郊风华低密产品展示</h1>
+
+    <!-- 视频播放区域 -->
+    <video controls poster="https://picsum.photos/1200/675?grayscale">
+        <source src="2.mp4" type="video/mp4">
+ 
+        您的浏览器不支持视频播放，请升级浏览器。
+    </video>
+    <!-- 其他内容也可以使用大字体 -->
+
+
+
+
+        
+ 
+                <div class="card">
+                    <div class="card-body">
+
+                            <div class="flex items-center justify-center mb-8">
+                                
+                                <section id="销售表现" class="py-20">
+                                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">销售表现</h2>
+                                </section>
+                                
+                            </div>
+                                <p class="text-gray-600 leading-relaxed text-center">2021年度，金地在上海单城市操盘金额270亿，操盘面积59万方，均位列上海TOP1；</p>
+                                <p class="text-gray-600 leading-relaxed text-center">2022年度，金地在上海单城市销售金额348亿，操盘面积52万方，均位列上海TOP3。</p>
+
+                        </div>
+                        
+                            <img src="96.png" alt="图片1" class="w-full h-auto rounded">
+
+  <title>投资表现展示</title>
+  <!-- 引入 Font Awesome 图标库 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css"
+    rel="stylesheet"
+  />
+  <style>
+    /* 重置默认样式，提升跨浏览器一致性 */
+    body {
+      margin: 0;
+      padding: 20px;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f9fafb;
+    }
+
+    /* 卡片容器样式（若需模拟卡片效果） */
+    .card {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+      margin-bottom: 20px;
+    }
+
+    .card-body {
+      padding: 0; /* 清除默认内边距，按需调整 */
+    }
+
+    /* 标题区域样式 */
+    .title-section {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .title-section h2 {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #1a202c;
+      margin-bottom: 10px;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      background-color: #22c55e;
+      color: white;
+      border-radius: 12px;
+      font-size: 0.875rem;
+      font-weight: 500;
+    }
+
+    /* 包裹4个圆形组件的容器，使用Flex布局 */
+    .circles-wrapper {
+      display: flex;
+      flex-wrap: wrap; /* 屏幕较小时自动换行 */
+      justify-content: center; /* 水平居中 */
+      gap: 100px; /* 组件之间的间距，保持你原有设置 */
+      padding: 20px;
+    }
+
+    /* 圆形组件样式（保持你原有设置，无需修改） */
+    .circle-text {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      border: 3px solid #e53e3e; /* 红色轮廓 */
+      background: #fff;
+      box-shadow: 0 8px 24px rgba(229, 62, 62, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      transition: all 0.3s ease;
+      color: #1a202c;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .circle-text .title {
+      font-size: 20px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: #e53e3e;
+    }
+
+    .circle-text .content {
+      font-size: 14px;
+      padding: 0 15px;
+      line-height: 1.5;
+    }
+
+    .circle-text:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(229, 62, 62, 0.25);
+      border-color: #c53030;
+    }
+
+    .circle-text .icon {
+      font-size: 28px;
+      color: #e53e3e;
+      margin-bottom: 10px;
+    }
+  </style>
+
+  <!-- 卡片容器（若需模拟卡片效果） -->
+  <div class="card">
+    <div class="card-body">
+      <!-- 标题区域 -->
+      <div class="title-section">
+        <section id="投资表现" class="py-20">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">投资表现</h2>
+        </section>
+      </div>
+
+      <!-- 圆形组件容器 -->
+      <div class="circles-wrapper">
+        <!-- 第一个圆形组件 -->
+        <div class="circle-text">
+          <i class="fa fa-line-chart icon"></i>
+          <div class="title">业绩表现</div>
+          <div class="content">
+            2019-2021 年，金地上海投资在地块获取数量、货值及地块素质均位于上海同行前列，达到领先水平
+          </div>
+        </div>
+
+        <!-- 第二个圆形组件 -->
+        <div class="circle-text">
+          <i class="fa fa-building icon"></i>
+          <div class="title">行业地位</div>
+          <div class="content">
+            2020-2021 年，行业从拿地权益金额、拿地数量、对地块的研究能力等维度评估，金地上海连续两年位列TOP1
+          </div>
+        </div>
+
+        <!-- 第三个圆形组件 -->
+        <div class="circle-text">
+          <i class="fa fa-users icon"></i>
+          <div class="title">项目收益</div>
+          <div class="content">
+            2022-2023 年，金地上海获取7幅地块，平均净利率12.8%，平均IRR39.3%
+          </div>
+        </div>
+
+        <!-- 第四个圆形组件 -->
+        <div class="circle-text">
+          <i class="fa fa-trophy icon"></i>
+          <div class="title">新增项目</div>
+          <div class="content">
+            2025 年，金地上海获取松江方松街道项目，净利率 10.2%，IRR 31.8%，利息约 2786 万
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+                        </div>
+                        
+                            <img src="165.png" alt="图片1" class="w-full h-auto rounded mb-24">
+                            
+                            
+        </div>       
+        <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>地块投资数据统计</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0F52BA',
+                        secondary: '#1E3A8A',
+                        accent: '#3B82F6',
+                        neutral: '#F8FAFC'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .table-shadow {
+                box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            }
+            .cell-transition {
+                transition: all 0.2s ease;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-6 md:p-10">
+    <div class="max-w-5xl mx-auto">
+        <!-- 表格标题 -->
+
+        
+        <!-- 响应式表格容器 -->
+        <div class="overflow-x-auto rounded-xl table-shadow bg-white">
+            <table class="w-full text-left">
+                <!-- 表头 -->
+                <thead>
+                    <tr class="bg-gradient-to-r from-primary to-secondary text-white">
+                        <th class="px-6 py-4 font-semibold">
+                            <i class="fa fa-calendar-o mr-2"></i>年份
+                        </th>
+                        <th class="px-6 py-4 font-semibold">
+                            <i class="fa fa-map-marker mr-2"></i>获取地块数量
+                        </th>
+                        <th class="px-6 py-4 font-semibold">
+                            <i class="fa fa-line-chart mr-2"></i>全口径投资额(亿元)
+                        </th>
+                        <th class="px-6 py-4 font-semibold">
+                            <i class="fa fa-bar-chart mr-2"></i>全口径货值(亿元)
+                        </th>
+                    </tr>
+                </thead>
+                
+                <!-- 表格内容 -->
+                <tbody>
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2019</td>
+                        <td class="px-6 py-4">4</td>
+                        <td class="px-6 py-4">70</td>
+                        <td class="px-6 py-4">156</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2020</td>
+                        <td class="px-6 py-4">4</td>
+                        <td class="px-6 py-4">156</td>
+                        <td class="px-6 py-4">284</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2021</td>
+                        <td class="px-6 py-4">4</td>
+                        <td class="px-6 py-4">115</td>
+                        <td class="px-6 py-4">188</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2022</td>
+                        <td class="px-6 py-4">5</td>
+                        <td class="px-6 py-4">107</td>
+                        <td class="px-6 py-4">210</td>
+                    </tr>
+                    <tr class="border-b border-gray-100 hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2023</td>
+                        <td class="px-6 py-4">2</td>
+                        <td class="px-6 py-4">40</td>
+                        <td class="px-6 py-4">74</td>
+                    </tr>
+                    <tr class="hover:bg-blue-50 cell-transition">
+                        <td class="px-6 py-4 font-medium">2025</td>
+                        <td class="px-6 py-4">1</td>
+                        <td class="px-6 py-4">8.2</td>
+                        <td class="px-6 py-4">17.6</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- 数据说明 -->
+        <div class="mt-4 text-sm text-gray-500 text-center">
+            <p>数据来源：企业内部统计报告 | 单位：亿元</p>
+        </div>
+    </div>
+
+    <script>
+        // 添加表格加载动画
+        document.addEventListener('DOMContentLoaded', () => {
+            const table = document.querySelector('table');
+            table.style.opacity = '0';
+            table.style.transform = 'translateY(20px)';
+            table.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            
+            setTimeout(() => {
+                table.style.opacity = '1';
+                table.style.transform = 'translateY(0)';
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+
+            
+
+            <style>
+                        /* 全局样式，作用于所有 info-wrapper 和 info-column */
+                    .info-wrapper {
+                        display: flex;
+                    lign-items: flex-start;
+                    }
+                    .info-column {
+                    margin-right: 20px;
+                        }
+  .red-text {
+    color: red;
+  }
+</style>
+
+                        
+                            <div class="flex items-baseline justify-center mb-8 px-6">
+                                <section id="投资能力" class="py-20">
+                                <h3 class="text-5xl font-bold text-gray-900">投资能力</h3>
+                                </section>
+                                
+                            </div>
+                            <div class="px-6">
+                                <div class="grid md:grid-cols-3 gap-6">
+    <!-- 第一个项目卡片 -->
+    <div class="card group">
+      <div class="overflow-hidden">
+        <img src="89.png" alt="青浦·虹桥峯汇" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+      </div>
+      <div class="p-4">
+        <h4 class="font-bold text-lg mb-2">上海·虹悦湾项目</h4>
+        <div class="info-wrapper">
+          <div class="info-column">
+            <p>项目位置:青浦徐泾</p>
+            <p>占地面积:53557平方米</p>
+            <p>建筑面积:80336平方米</p>
+            <p>容积率:1.50</p>
+          </div>
+          <div class="info-column red-text">
+            <p>拿地时间: 2020.6</p>
+            <p>净利率: 12%</p>
+            <p>IRR: 35%</p>
+            <p>现金流回正: 18个月</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 第二个项目卡片 -->
+    <div class="card group">
+      <div class="overflow-hidden">
+        <img src="90.png" alt="嘉定·嘉源" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+      </div>
+      <div class="p-4">
+        <h4 class="font-bold text-lg mb-2">上海·金地峯范(2020)项目</h4>
+        <div class="info-wrapper">
+        <div class="info-column">
+            <p>项目位置:嘉定新城</p>
+            <p>占地面积:84385平方米</p>
+            <p>建筑面积:168770平方米</p>
+            <p>容积率:2.00</p>
+          </div>
+          <div class="info-column red-text">
+            <p>拿地时间: 2020.6</p>
+            <p>净利率: 13%</p>
+            <p>IRR: 40%</p>
+            <p>现金流回正: 12个月</p>
+          </div>
+      </div>
+    </div>
+    </div>
+
+    <!-- 第三个项目卡片 -->
+    <div class="card group">
+      <div class="overflow-hidden">
+        <img src="91.png" alt="松江·丰盛道" class="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300">
+      </div>
+      <div class="p-4">
+        <h4 class="font-bold text-lg mb-2">上海·花语江南</h4>
+        <div class="info-wrapper">
+        <div class="info-column">
+            <p>项目位置:青浦赵巷</p>
+            <p>占地面积:77963平方米</p>
+            <p>建筑面积:101352平方米</p>
+            <p>容积率:1.30</p>
+          </div>
+          <div class="info-column red-text">
+            <p>拿地时间: 2021.6</p>
+            <p>净利率: 13%</p>
+            <p>IRR: 42%</p>
+            <p>现金流回正: 12个月</p>
+          </div>
+    </div>
+  </div>
+</div>
+</div>
+            
+    <div class="card-header">
+        <div class="flex flex-col items-center justify-between px-6">
+            <section id="对外合作" class="py-20">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">对外合作</h2>
+            </section>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="px-6">
+            <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>合作架构图对齐</title>
+  <!-- 引入 Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- 引入 Font Awesome 用于箭头图标 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* 自定义架构图容器内元素的定位样式 */
+    .arch-node {
+      position: absolute;
+      padding: 0.5rem 1rem;
+      border-radius: 0.25rem;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .arch-arrow {
+      position: absolute;
+      font-size: 1rem;
+      color: gray;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container mx-auto px-4 py-8">
+    <!-- 外层容器，使用 Flex 让两个架构图模块并列 -->
+    <div class="flex flex-col md:flex-row gap-8">
+            <!-- 主要修改：使用grid布局实现两列并列 -->
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 与星狮合作版块 -->
+                <div class="合作版块">
+                    <div class="bg-gradient-to-br from-white-400 to-white-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                        
+                    <h4 class="text-lg font-bold text-gray-800 mb-6 text-center">与星狮合作</h4>
+                    <p class="text-gray-600 leading-relaxed">2013年开始落地第一个合作项目(金地自在城),至今已合作10个项目,所有合作项目累计开发面积165万㎡,累计全口径货值694亿,项目净利率在9-16%之间,项目均采取金地为主操盘、星狮财务投资的股权合作模式</p>
+                    <img src="92.png" class="my-4 w-full">
+                    
+                    <h5 class="font-bold mb-4 mt-0" style="margin-top: 0;">合作架构图</h5>
+                    <div class="architecture-diagram" style="position: relative; width: 100%; height: 300px;">
+                        <div class="node jindi" style="position: absolute; top: 20px; left: 40px; padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #b71c1c;">金地集团</div>
+                        <div class="node xingshi" style="position: absolute; top: 20px; right: 40px; padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #f5a623;">星狮方SPV公司</div>
+                        <div class="node zhaipai" style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #42a5f5;">摘牌公司</div>
+                        <div class="node project" style="position: absolute; top: 220px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #26a69a;">项目公司</div>
+                        
+                        <div class="arrow arrow-jindi-to-zhaipai" style="position: absolute; top: 60px; left: 100px; font-size: 20px; color: #9e9e9e; transform: rotate(-45deg);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arrow arrow-xingshi-to-zhaipai" style="position: absolute; top: 60px; right: 100px; font-size: 20px; color: #9e9e9e; transform: rotate(45deg);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arrow arrow-zhaipai-to-project" style="position: absolute; top: 170px; left: 50%; font-size: 20px; color: #9e9e9e; transform: translateX(-50%);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        
+                    </div>
+                     
+
+
+
+                </div>
+                </div>
+                 
+
+
+
+                <!-- 与吉宝合作版块 -->
+                <div class="合作版块">
+                    <div class="bg-gradient-to-br from-white-400 to-white-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
+                    <h4 class="text-lg font-bold text-gray-800 mb-6 text-center">与吉宝合作</h4>
+                    <p class="text-gray-600 leading-relaxed">2013年开始落地第一个合作项目(金地自在城),至今已合作10个项目,所有合作项目累计开发面积165万㎡,累计全口径货值694亿,项目净利率在9-16%之间,项目均采取金地为主操盘、吉宝财务投资的股权合作模式</p>
+                    
+                    <img src="93.png" class="my-4 w-full" >
+                    <h5 class="font-bold mb-4 mt-0" style="margin-top: 0;">合作架构图</h5>
+                    <div class="architecture-diagram" style="position: relative; width: 100%; height: 300px;">
+                        <div class="node jindi" style="position: absolute; top: 20px; left: 40px; padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #b71c1c;">金地集团</div>
+                        <div class="node xingshi" style="position: absolute; top: 20px; right: 40px; padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #f5a623;">吉宝方SPV公司</div>
+                        <div class="node zhaipai" style="position: absolute; top: 120px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #42a5f5;">摘牌公司</div>
+                        <div class="node project" style="position: absolute; top: 220px; left: 50%; transform: translateX(-50%); padding: 10px 20px; border-radius: 6px; color: white; font-weight: bold; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); background-color: #26a69a;">项目公司</div>
+                        
+                        <div class="arrow arrow-jindi-to-zhaipai" style="position: absolute; top: 60px; left: 100px; font-size: 20px; color: #9e9e9e; transform: rotate(-45deg);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arrow arrow-xingshi-to-zhaipai" style="position: absolute; top: 60px; right: 100px; font-size: 20px; color: #9e9e9e; transform: rotate(45deg);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="arrow arrow-zhaipai-to-project" style="position: absolute; top: 170px; left: 50%; font-size: 20px; color: #9e9e9e; transform: translateX(-50%);">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目发展时间轴（独立样式版）</title>
+    <!-- 引入 Font Awesome 图标 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 所有样式都限定在 .timeline-section 容器内，避免影响全局 */
+        .timeline-section * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+
+        .timeline-section .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .timeline-section .header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .timeline-section .header h1 {
+            font-size: 32px;
+            color: #E67E22;
+            font-weight: 700;
+            margin-bottom: 12px;
+            text-shadow: 0 2px 4px rgba(230, 126, 34, 0.1);
+        }
+
+        .timeline-section .header p {
+            font-size: 16px;
+            color: #D35400;
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 控制区域：调整比例的滑块 */
+        .timeline-section .timeline-controls {
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(230, 126, 34, 0.1);
+        }
+
+        .timeline-section .control-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .timeline-section .control-group label {
+            font-size: 14px;
+            color: #D35400;
+            font-weight: 600;
+        }
+
+        .timeline-section #scale-control {
+            width: 200px;
+            height: 6px;
+            background: rgba(243, 156, 18, 0.2);
+            border-radius: 3px;
+            appearance: none;
+            cursor: pointer;
+        }
+
+        .timeline-section #scale-control::-webkit-slider-thumb {
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #E67E22;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .timeline-section #scale-value {
+            font-size: 14px;
+            color: #E67E22;
+            font-weight: 600;
+            background: rgba(243, 156, 18, 0.1);
+            padding: 3px 10px;
+            border-radius: 12px;
+        }
+
+        .timeline-section .timeline-container {
+            position: relative;
+            padding: 40px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .timeline-section .timeline-wrapper {
+            position: relative;
+            min-width: 1000px;
+            height: 500px;
+            transition: transform 0.5s ease;
+        }
+
+        /* 时间轴行容器 */
+        .timeline-section .timeline-row {
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+        }
+
+        .timeline-section .timeline-row-1 {
+            top: 0;
+        }
+
+        .timeline-section .timeline-row-2 {
+            bottom: 0;
+        }
+
+        /* 时间轴线 */
+        .timeline-section .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 50px;
+            right: 50px;
+            height: 4px;
+            background: linear-gradient(to right, #F39C12, #E67E22);
+            border-radius: 2px;
+            transform: translateY(-50%);
+            z-index: 1;
+        }
+
+        /* 年份标记 */
+        .timeline-section .year-markers {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 60px;
+            transform: translateY(-50%);
+            display: flex;
+            justify-content: space-between;
+            padding: 0 50px;
+            z-index: 3;
+        }
+
+        .timeline-section .year-marker {
+            font-size: 14px;
+            font-weight: 600;
+            color: #D35400;
+            background: rgba(243, 156, 18, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .timeline-section .year-marker::after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 50%;
+            width: 2px;
+            height: 8px;
+            background: #F39C12;
+            transform: translateX(-50%);
+        }
+
+        /* 时间轴项目 */
+        .timeline-section .timeline-item {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 160px;
+            cursor: pointer;
+            z-index: 2;
+        }
+
+        .timeline-section .timeline-item:hover {
+            transform: scale(1.05);
+        }
+
+        .timeline-section .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #F39C12;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.3);
+            z-index: 2;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .timeline-section .timeline-dot::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100%;
+            height: 100%;
+            background: rgba(243, 156, 18, 0.4);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .timeline-section .timeline-item:hover .timeline-dot {
+            background: #E67E22;
+            transform: scale(1.2);
+        }
+
+        .timeline-section .timeline-item:hover .timeline-dot::after {
+            transform: translate(-50%, -50%) scale(1.8);
+        }
+
+        .timeline-section .timeline-card {
+            background: white;
+            border-radius: 12px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.15);
+            width: 100%;
+            text-align: center;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 2px solid transparent;
+        }
+
+        .timeline-section .timeline-row-1 .timeline-card {
+            margin-bottom: 15px;
+        }
+
+        .timeline-section .timeline-row-2 .timeline-card {
+            margin-top: 15px;
+        }
+
+        .timeline-section .timeline-item:hover .timeline-card {
+            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.25);
+            border-color: #F39C12;
+        }
+
+        .timeline-section .timeline-date {
+            font-size: 12px;
+            color: #E67E22;
+            font-weight: 600;
+            margin-bottom: 6px;
+            padding: 3px 10px;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .timeline-section .project-name {
+            font-size: 16px;
+            font-weight: 700;
+            color: #D35400;
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+
+        .timeline-section .project-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .timeline-section .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .timeline-section .info-icon {
+            font-size: 14px;
+            color: #F39C12;
+        }
+
+        .timeline-section .info-value {
+            color: #E67E22;
+            font-weight: 600;
+        }
+
+        /* 项目详情区 */
+        .timeline-section .project-details {
+            margin-top: 10px;
+            padding-top: 10px;
+            border-top: 1px dashed rgba(243, 156, 18, 0.3);
+            font-size: 12px;
+            color: #888;
+            line-height: 1.4;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .timeline-section .timeline-item.active .project-details {
+            max-height: 100px;
+        }
+
+        /* 连接线 */
+        .timeline-section .timeline-item::before {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background: #F39C12;
+            opacity: 0.5;
+            transition: height 0.3s ease;
+        }
+
+        .timeline-section .timeline-row-1 .timeline-item::before {
+            top: calc(50% - 10px);
+            height: 30px;
+        }
+
+        .timeline-section .timeline-row-2 .timeline-item::before {
+            bottom: calc(50% - 10px);
+            height: 30px;
+        }
+
+        .timeline-section .timeline-item:hover::before {
+            height: 40px;
+            opacity: 0.8;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 1024px) {
+            .timeline-section .timeline-wrapper {
+                min-width: 800px;
+                height: 450px;
+            }
+            
+            .timeline-section .timeline-item {
+                width: 140px;
+            }
+            
+            .timeline-section .timeline-card {
+                padding: 12px;
+            }
+            
+            .timeline-section .project-name {
+                font-size: 14px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .timeline-section .header h1 {
+                font-size: 28px;
+            }
+            
+            .timeline-section .timeline-wrapper {
+                min-width: 100%;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+                padding: 20px 0 40px;
+            }
+            
+            .timeline-section .timeline-row {
+                position: relative;
+                height: auto;
+                flex-direction: column;
+                gap: 50px;
+                padding: 30px 20px;
+            }
+            
+            .timeline-section .timeline-line {
+                position: absolute;
+                top: 0;
+                left: 30px;
+                width: 4px;
+                height: 100%;
+                background: linear-gradient(to bottom, #F39C12, #E67E22);
+                transform: none;
+            }
+            
+            .timeline-section .timeline-item {
+                width: 100%;
+                flex-direction: row;
+                justify-content: flex-start;
+                gap: 20px;
+                padding-left: 60px;
+            }
+            
+            .timeline-section .timeline-row-1 .timeline-card,
+            .timeline-section .timeline-row-2 .timeline-card {
+                margin: 0;
+                text-align: left;
+            }
+            
+            .timeline-section .project-info .info-row {
+                justify-content: flex-start;
+            }
+            
+            .timeline-section .timeline-item::before {
+                top: 10px;
+                left: 30px;
+                width: 30px;
+                height: 2px;
+            }
+            
+            .timeline-section .timeline-item:hover::before {
+                width: 40px;
+                height: 2px;
+            }
+            
+            .timeline-section .year-markers {
+                display: none;
+            }
+            
+            .timeline-section .control-group {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* 滚动条美化 */
+        .timeline-section .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .timeline-section .timeline-container::-webkit-scrollbar-track {
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 4px;
+        }
+
+        .timeline-section .timeline-container::-webkit-scrollbar-thumb {
+            background: #F39C12;
+            border-radius: 4px;
+        }
+
+        .timeline-section .timeline-container::-webkit-scrollbar-thumb:hover {
+            background: #E67E22;
+        }
+
+        /* 无障碍优化 */
+        .timeline-section .timeline-item:focus-visible {
+            outline: 2px solid #E67E22;
+            outline-offset: 8px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <!-- 新增 timeline-section 容器，所有时间轴内容都在这个容器内 -->
+    <div class="timeline-section">
+        <div class="container">
+            <div class="header">
+                <h1>星狮项目发展时间轴</h1>
+                <p>2018-2025 年度项目布局展示</p>
+            </div>
+
+            <!-- 控制区域 -->
+            <div class="timeline-controls">
+                <div class="control-group">
+                    <label for="scale-control">调整时间轴比例：</label>
+                    <input type="range" id="scale-control" min="70" max="150" value="100">
+                    <span id="scale-value">100%</span>
+                </div>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-wrapper" id="timeline-wrapper">
+                    <!-- 第一行时间轴 -->
+                    <div class="timeline-row timeline-row-1">
+                        <div class="timeline-line"></div>
+                        
+                        <!-- 2018年12月 -->
+                        <div class="timeline-item" tabindex="0" data-year="2018">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2018年12月</div>
+                                <div class="project-name">徐汇天悦</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海松江</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">4.91万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">39亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    位于松江新城核心区域，定位中高端住宅项目，配套完善，交通便利。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2021年6月 - 金地峯汇 -->
+                        <div class="timeline-item" tabindex="0" data-year="2021">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2021年6月</div>
+                                <div class="project-name">金地峯汇</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海嘉定</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">10.91万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">52亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    集住宅、商业于一体的综合体项目，采用现代简约风格设计。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2022年6月 - 星樾云涧 -->
+                        <div class="timeline-item" tabindex="0" data-year="2022">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2022年6月</div>
+                                <div class="project-name">星樾云涧</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海松江</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">9.22万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">51亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    主打生态宜居概念，临近城市公园，绿化率高达35%。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2023年4月 - 金地嘉峯汇 -->
+                        <div class="timeline-item" tabindex="0" data-year="2023">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2023年4月</div>
+                                <div class="project-name">金地嘉峯汇</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海嘉定</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">12.12万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">53亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    定位年轻家庭客群，配备儿童活动中心和社区图书馆。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2025年2月 -->
+                        <div class="timeline-item" tabindex="0" data-year="2025">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2025年2月</div>
+                                <div class="project-name">方松街道</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海松江</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">3.11万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">18亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    预计2025年开工的小型精品项目，主打高端改善型住宅。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+
+                    <!-- 年份标记 -->
+                    <div class="year-markers">
+                        <div class="year-marker">2018</div>
+                        <div class="year-marker">2020</div>
+                        <div class="year-marker">2021</div>
+                        <div class="year-marker">2022</div>
+                        <div class="year-marker">2023</div>
+                        <div class="year-marker">2025</div>
+                    </div>
+
+                    <!-- 第二行时间轴 -->
+                    <div class="timeline-row timeline-row-2">
+                        <div class="timeline-line"></div>
+                        
+                        <!-- 2020年12月 -->
+                        <div class="timeline-item" tabindex="0" data-year="2020">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2020年12月</div>
+                                <div class="project-name">金地丰盛道</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海松江</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">21.17万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">113亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    大型综合社区，包含住宅、商业街区和社区服务中心。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2021年6月 - 金地嘉源 -->
+                        <div class="timeline-item" tabindex="0" data-year="2021">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2021年6月</div>
+                                <div class="project-name">金地嘉源</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海嘉定</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">10.11万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">41亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    低密度社区，以多层洋房为主，强调居住舒适度。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2022年6月 - 金地虹桥峯汇 -->
+                        <div class="timeline-item" tabindex="0" data-year="2022">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2022年6月</div>
+                                <div class="project-name">金地虹桥峯汇</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海青浦</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">8.38万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">45亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    紧邻虹桥交通枢纽，定位为高端服务式公寓项目。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+
+                        <!-- 2023年4月 - 金地嘉境 -->
+                        <div class="timeline-item" tabindex="0" data-year="2023">
+                            <div class="timeline-card">
+                                <div class="timeline-date">2023年4月</div>
+                                <div class="project-name">金地嘉境</div>
+                                <div class="project-info">
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-map-marker-alt"></i></span>
+                                        <span>上海嘉定</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-ruler-combined"></i></span>
+                                        <span class="info-value">5.88万㎡</span>
+                                    </div>
+                                    <div class="info-row">
+                                        <span class="info-icon"><i class="fas fa-money-bill-wave"></i></span>
+                                        <span class="info-value">21亿</span>
+                                    </div>
+                                </div>
+                                <div class="project-details">
+                                    精品小户型社区，针对年轻专业人士设计，智能化配置齐全。
+                                </div>
+                            </div>
+                            <div class="timeline-dot"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 初始化时间轴
+        document.addEventListener('DOMContentLoaded', function() {
+            // 时间轴比例控制
+            const scaleControl = document.querySelector('.timeline-section #scale-control');
+            const scaleValue = document.querySelector('.timeline-section #scale-value');
+            const timelineWrapper = document.querySelector('.timeline-section #timeline-wrapper');
+            
+            // 更新比例显示和时间轴大小
+            function updateScale() {
+                const scale = scaleControl.value;
+                scaleValue.textContent = `${scale}%`;
+                timelineWrapper.style.transform = `scale(${scale / 100})`;
+                timelineWrapper.style.transformOrigin = 'top center';
+            }
+            
+            // 初始化比例
+            updateScale();
+            
+            // 监听滑块变化
+            scaleControl.addEventListener('input', updateScale);
+            
+            // 项目卡片点击展开/收起详情
+            const timelineItems = document.querySelectorAll('.timeline-section .timeline-item');
+            
+            timelineItems.forEach(item => {
+                // 点击事件
+                item.addEventListener('click', () => {
+                    item.classList.toggle('active');
+                });
+                
+                // 键盘事件（无障碍支持）
+                item.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        item.classList.toggle('active');
+                    }
+                });
+            });
+
+            // 添加载入动画
+            setTimeout(() => {
+                timelineItems.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 100 * index);
+                });
+            }, 300);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目时间轴</title>
+    <style>
+        /* 所有样式都限定在 project-timeline-container 容器内 */
+        .project-timeline-container * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        
+
+        .project-timeline-container .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            min-width: 800px;
+        }
+
+        .project-timeline-container .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .project-timeline-container .header h1 {
+            font-size: 32px;
+            color: #E67E22;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .project-timeline-container .header p {
+            font-size: 16px;
+            color: #D35400;
+            opacity: 0.8;
+        }
+
+        .project-timeline-container .timeline-container {
+            position: relative;
+            padding: 20px 0;
+            overflow-x: auto;
+            overflow-y: hidden;
+        }
+
+        .project-timeline-container .timeline-wrapper {
+            position: relative;
+            min-width: 800px;
+            height: 300px;
+        }
+
+        /* 时间轴主线 */
+        .project-timeline-container .timeline-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(to right, #F39C12, #E67E22);
+            border-radius: 2px;
+            transform: translateY(-50%);
+        }
+
+        /* 时间轴项目 */
+        .project-timeline-container .timeline-item {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .project-timeline-container .timeline-item:hover {
+            transform: translateY(-50%) scale(1.05);
+        }
+
+        .project-timeline-container .timeline-dot {
+            width: 20px;
+            height: 20px;
+            background: #F39C12;
+            border: 4px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.3);
+            margin-bottom: 20px;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .project-timeline-container .timeline-item:hover .timeline-dot {
+            background: #E67E22;
+            transform: scale(1.2);
+        }
+
+        .project-timeline-container .timeline-card {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 8px 24px rgba(230, 126, 34, 0.15);
+            min-width: 180px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .project-timeline-container .timeline-item:hover .timeline-card {
+            box-shadow: 0 12px 32px rgba(230, 126, 34, 0.25);
+            border-color: #F39C12;
+        }
+
+        .project-timeline-container .timeline-date {
+            font-size: 14px;
+            color: #E67E22;
+            font-weight: 600;
+            margin-bottom: 8px;
+            padding: 4px 12px;
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 20px;
+            display: inline-block;
+        }
+
+        .project-timeline-container .project-name {
+            font-size: 18px;
+            font-weight: 700;
+            color: #D35400;
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .project-timeline-container .project-info {
+            display: flex;
+            flex-direction: column;
+            /* 去掉信息行之间的间隔 */
+            gap: 0;
+        }
+
+        .project-timeline-container .info-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            /* 去掉图标和文字之间的间隔 */
+            gap: 0;
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 4px;
+        }
+
+        .project-timeline-container .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .project-timeline-container .info-icon {
+            font-size: 16px;
+            /* 添加右边距作为图标和文字的间隔 */
+            margin-right: 4px;
+        }
+
+        .project-timeline-container .info-value {
+            color: #E67E22;
+            font-weight: 600;
+        }
+
+        /* 项目位置 */
+        .project-timeline-container .item-1 { left: 15%; }
+        .project-timeline-container .item-2 { left: 50%; }
+        .project-timeline-container .item-3 { left: 85%; }
+
+        /* 连接线 */
+        .project-timeline-container .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2px;
+            height: 40px;
+            background: #F39C12;
+            transform: translateX(-50%);
+            opacity: 0.5;
+        }
+
+        /* 年份标记 */
+        .project-timeline-container .year-markers {
+            position: absolute;
+            top: 70%;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 100px;
+        }
+
+        .project-timeline-container .year-marker {
+            font-size: 14px;
+            font-weight: 600;
+            color: #D35400;
+            background: rgba(243, 156, 18, 0.2);
+            padding: 6px 16px;
+            border-radius: 20px;
+            white-space: nowrap;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 800px) {
+            .project-timeline-container .container {
+                min-width: 600px;
+            }
+            .project-timeline-container .timeline-wrapper {
+                min-width: 600px;
+            }
+            .project-timeline-container .timeline-card {
+                min-width: 160px;
+                padding: 16px;
+            }
+            .project-timeline-container .project-name {
+                font-size: 16px;
+            }
+            .project-timeline-container .info-row {
+                font-size: 13px;
+            }
+        }
+
+        /* 滚动条美化 */
+        .project-timeline-container .timeline-container::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .project-timeline-container .timeline-container::-webkit-scrollbar-track {
+            background: rgba(243, 156, 18, 0.1);
+            border-radius: 4px;
+        }
+
+        .project-timeline-container .timeline-container::-webkit-scrollbar-thumb {
+            background: #F39C12;
+            border-radius: 4px;
+        }
+
+        .project-timeline-container .timeline-container::-webkit-scrollbar-thumb:hover {
+            background: #E67E22;
+        }
+    </style>
+</head>
+<body>
+    <!-- 所有内容都包裹在唯一容器内 -->
+    <div class="project-timeline-container">
+        <div class="container">
+            <div class="header">
+                <h1>吉宝项目发展时间轴</h1>
+                <p>2018-2022 年度项目布局展示</p>
+            </div>
+
+            <div class="timeline-container">
+                <div class="timeline-wrapper">
+                    <div class="timeline-line"></div>
+                    
+                    <!-- 2018年6月 -->
+                    <div class="timeline-item item-1">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2018年6月</div>
+                            <div class="project-name">金地风华国际</div>
+                            <div class="project-info">
+                                <div class="info-row">
+                                    <span class="info-icon">📍</span>
+                                    <span>南京</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">📏</span>
+                                    <span class="info-value">25.06万㎡</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">💰</span>
+                                    <span class="info-value">70亿</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- 2020年6月 -->
+                    <div class="timeline-item item-2">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2020年6月</div>
+                            <div class="project-name">金地峯范</div>
+                            <div class="project-info">
+                                <div class="info-row">
+                                    <span class="info-icon">📍</span>
+                                    <span>上海嘉定</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">📏</span>
+                                    <span class="info-value">16.88万㎡</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">💰</span>
+                                    <span class="info-value">77亿</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- 2022年7月 -->
+                    <div class="timeline-item item-3">
+                        <div class="timeline-card">
+                            <div class="timeline-date">2022年7月</div>
+                            <div class="project-name">金地西郊悦章</div>
+                            <div class="project-info">
+                                <div class="info-row">
+                                    <span class="info-icon">📍</span>
+                                    <span>上海嘉定</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">📏</span>
+                                    <span class="info-value">6.23万㎡</span>
+                                </div>
+                                <div class="info-row">
+                                    <span class="info-icon">💰</span>
+                                    <span class="info-value">31亿</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+
+                    <!-- 年份标记 -->
+                    <div class="year-markers">
+                        <div class="year-marker">2018</div>
+                        <div class="year-marker">2020</div>
+                        <div class="year-marker">2022</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    
+
+    
+    
+
+                
+
+<style>
+  /* 外层容器：控制两个板块并列 */
+  .outer-container {
+    display: flex;
+    flex-wrap: wrap; /* 移动端自动换行 */
+    gap: 30px; /* 板块之间的间距 */
+    padding: 20px;
+  }
+
+  /* 单个板块容器：控制内部文字与图片布局 */
+  .section {
+    flex: 1;
+    min-width: 300px; /* 移动端最小宽度，避免挤压 */
+  }
+
+  /* 标题样式：居中显示 */
+  .section h3 {
+    text-align: center;
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 15px;
+  }
+
+  /* 文字区域通用样式 */
+  .text-area {
+    margin-bottom: 20px;
+  }
+
+  /* 图片区域通用样式 */
+  .image-area img {
+    width: 100%;
+    height: 600px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+</style>
+
+<div class="outer-container">
+  <!-- 产品能力板块 -->
+  <div class="section">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">产品能力</h2>
+    <div class="text-area">
+      <p>金地上海产品在2020年-2024年获得国内外奖项及认证66项。如上海金地峯范(2020)为住建部智能建造试点项目:</p>
+      <p>金地范、金地嘉源、金地丰盛道、马桥·玖玺、金地嘉峯汇等获得克尔瑞全国十大品质作品。</p>
+    </div>
+    <div class="image-area">
+      <img src="14.png" alt="产品能力相关图片">
+    </div>
+  </div>
+
+  <!-- 人员构成板块 -->
+  <div class="section">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">人才储备</h2>
+    <div class="text-area">
+      <p>金地集团的人才学历层次丰富且优质。其中，硕士学历占比达 59%，本科学历占 34%，还有少量博士学历人才。</p>
+      <p>在人才来源方面，多元的学历结构与广泛的高校来源，为企业发展提供了坚实的智力支撑</p>
+    </div>
+    <div class="image-area">
+      <img src="16.png" alt="人员构成相关图片">
+    </div>
+  </div>
+</div>
+        <section id="开发能力" class="py-20">
+        <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">开发能力</h2>
+        </section>
+        <p class="text-gray-600 leading-relaxed text-center">2022年以来，金地华东上海项目首开周期平均6.6个月，保持在城市20%分位，其中，金地悦章项目4.3个月开盘，占位城市前2%</p>
+        <p class="text-gray-600 leading-relaxed text-center">22年新项目全市开盘时间前十项目中金地占据4个，是所有开发商中占比最高的一个。</p>
+        <div class="grid grid-cols-2 gap-4">
+        <img src="17.png" alt="图片1" class="my-4 w-full h-[500px] object-contain" >
+        <img src="18.png" alt="图片2" class="my-4 w-full h-[500px] object-contain">
+                            
+
+
+
+    
+    
+
+
+<!-- 引入Font Awesome图标库 -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    </section>
+
+    <!-- 行业趋势 -->
+    <section id="trend" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">经典代建项目</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">金地在上海—多元化业务</p>
+            </div>
+            
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 mb-8">浦东临港 代建项目</h3>
+                    
+                       
+    <title>文字与轮播图并列布局</title>
+    <style>
+        /* 主容器 - 实现并列布局的核心 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap; /* 小屏幕自动换行 */
+            gap: 30px; /* 文字与轮播图之间的间距 */
+            padding: 20px;
+            max-width: 1400px; /* 限制最大宽度，避免过宽 */
+            margin: 0 auto; /* 居中显示 */
+        }
+
+        /* 文字区域样式 */
+        .text-section {
+            flex: 1; /* 自动占据剩余空间 */
+            min-width: 800px; /* 最小宽度，确保小屏幕显示正常 */
+        }
+
+        .text-section h2 {
+            font-size: 28px;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+
+        .text-section h3 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            color: #4a5568;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.6;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+
+        /* 轮播图容器 - 与文字区域并列 */
+        .carousel-outer {
+            flex: 1; /* 与文字区域平分空间 */
+            min-width: 300px; /* 最小宽度 */
+            position: relative;
+        }
+
+        /* 轮播图显示区域 */
+        .carousel-display {
+            width: 100%;
+            height: 400px; /* 固定高度，可调整 */
+            overflow: hidden;
+            border-radius: 8px; /* 圆角美化 */
+        }
+
+        /* 轮播图滚动容器 */
+        .carousel-scroll {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        /* 轮播图片样式 */
+        .carousel-item {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0; /* 禁止收缩，确保图片完整显示 */
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* 保持比例填充容器 */
+        }
+
+        /* 轮播按钮样式 */
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 40px;
+            height: 40px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: background-color 0.3s;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .control-prev {
+            left: 10px;
+        }
+
+        .control-next {
+            right: 10px;
+        }
+
+        /* 响应式调整 - 小屏幕自动堆叠 */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column;
+            }
+            
+            .carousel-display {
+                height: 300px; /* 小屏幕减小高度 */
+            }
+        }
+    </style>
+         
+    <div class="content-wrapper">
+        <!-- 文字部分 -->
+        <div class="text-section">
+            
+            <h3>临港TOD项目|上海临港自贸区【全过程代建】</h3>
+            <p>业主方为上海临港经济发展(集团)有限公司(市属国企)。本项目为TOD住宅地块、紧邻滴水湖核心片区环湖区域，地块地库与西侧两港快线站点直接连通、交通便利，将打造临港片区品质标杆、封面作品。</p>
+            <p>产品类型:叠加、高层住宅                              用地面积:78659㎡</p>
+            <p>开发时间:2023年                                     建筑面积:188782㎡</p>
+        </div>
+
+        <!-- 轮播图部分 -->
+        <div class="carousel-outer">
+            <div class="carousel-display">
+                <div class="carousel-scroll" id="scrollContainer">
+                    <!-- 轮播图片（3张） -->
+                    <div class="carousel-item">
+                        <img src="33.png" alt="临港项目图片1">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="34.png" alt="临港项目图片2">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="35.png" alt="临港项目图片3">
+                    </div>
+                </div>
+            </div>
+            <!-- 轮播控制按钮 -->
+            <button class="carousel-control control-prev" id="btnPrev">&lt;</button>
+            <button class="carousel-control control-next" id="btnNext">&gt;</button>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图变量（使用独特命名避免冲突）
+        const scrollContainer = document.getElementById('scrollContainer');
+        const prevButton = document.getElementById('btnPrev');
+        const nextButton = document.getElementById('btnNext');
+        const totalSlides = 3; // 总图片数量
+        let currentSlidePos = 0; // 当前显示索引
+        let autoSlideTimer;
+
+        // 切换到指定幻灯片
+        function switchToSlide(position) {
+            // 确保索引在有效范围内
+            if (position < 0) position = totalSlides - 1;
+            if (position >= totalSlides) position = 0;
+            
+            currentSlidePos = position;
+            // 计算滚动距离（百分比）
+            const scrollPercent = -currentSlidePos * 100;
+            scrollContainer.style.transform = `translateX(${scrollPercent}%)`;
+        }
+
+        // 下一张
+        function goToNextSlide() {
+            switchToSlide(currentSlidePos + 1);
+        }
+
+        // 上一张
+        function goToPrevSlide() {
+            switchToSlide(currentSlidePos - 1);
+        }
+
+        // 自动轮播
+        function startAutoSlide() {
+            autoSlideTimer = setInterval(goToNextSlide, 4000); // 4秒切换一次
+        }
+
+        // 事件监听
+        prevButton.addEventListener('click', goToPrevSlide);
+        nextButton.addEventListener('click', goToNextSlide);
+
+        // 鼠标悬停暂停自动轮播
+        const carouselOuter = document.querySelector('.carousel-outer');
+        carouselOuter.addEventListener('mouseenter', () => {
+            clearInterval(autoSlideTimer);
+        });
+
+        // 鼠标离开恢复自动轮播
+        carouselOuter.addEventListener('mouseleave', startAutoSlide);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            switchToSlide(0); // 显示第一张
+            startAutoSlide(); // 启动自动轮播
+        });
+    </script>
+            <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>静安平安康养 代建项目</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* 文字部分样式 */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .text-section h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 14px;
+        }
+
+        /* 轮播图容器样式 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .jingan-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .jingan-carousel-display {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .jingan-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .jingan-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .jingan-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 控制按钮样式 */
+        .jingan-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .jingan-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .jingan-control-prev {
+            left: 15px;
+        }
+
+        .jingan-control-next {
+            right: 15px;
+        }
+
+        /* 指示器样式 */
+        .jingan-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .jingan-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .jingan-indicator-dot.active {
+            background-color: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .jingan-carousel-display {
+                height: 300px;
+            }
+            
+            .jingan-carousel-control {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">静安平安康养 代建项目</h3>
+        <div class="content-wrapper">
+            <!-- 文字部分 -->
+            <div class="text-section">
+                <h3>静安颐年城项目|上海静安区【改建代建】</h3>
+                <p>业主方为平安人寿(金融机构)。项目位于静安常熟路，是平安臻颐年城市型高品质持续照料康养社区。项目现状为住宅公寓、办公塔楼和商办裙房，改造后将升级为高端适老化服务公寓，申领养老备案，整体打造康养服务社区。</p>
+                <p>产品类型:养老公寓                              用地面积:54875㎡</p>
+                <p>开发时间:2023年</p>
+            </div>
+
+            <!-- 轮播图部分 -->
+            <div class="carousel-section">
+                <div class="jingan-carousel-wrapper">
+                    <div class="jingan-carousel-display">
+                        <div class="jingan-carousel-track" id="jinganCarouselTrack">
+                            <!-- 轮播图片 -->
+                            <div class="jingan-carousel-slide">
+                                <img src="38.png" alt="静安项目图片1">
+                            </div>
+                            <div class="jingan-carousel-slide">
+                                <img src="39.png" alt="静安项目图片2">
+                            </div>
+                            <div class="jingan-carousel-slide">
+                                <img src="40.png" alt="静安项目图片3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="jingan-carousel-control jingan-control-prev" id="jinganControlPrev">&lt;</button>
+                    <button class="jingan-carousel-control jingan-control-next" id="jinganControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="jingan-carousel-indicators" id="jinganCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图核心变量（使用独特命名避免冲突）
+        const jinganCarouselTrack = document.getElementById('jinganCarouselTrack');
+        const jinganControlPrev = document.getElementById('jinganControlPrev');
+        const jinganControlNext = document.getElementById('jinganControlNext');
+        const jinganIndicatorsContainer = document.getElementById('jinganCarouselIndicators');
+        const jinganTotalSlides = jinganCarouselTrack.querySelectorAll('.jingan-carousel-slide').length;
+        let jinganCurrentSlide = 0;
+        let jinganCarouselTimer;
+
+        // 生成指示器
+        function generateJinganIndicators() {
+            jinganIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < jinganTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `jingan-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    jinganCurrentSlide = i;
+                    updateJinganCarousel();
+                });
+                jinganIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        // 更新轮播图状态
+        function updateJinganCarousel() {
+            // 计算滚动距离
+            const scrollValue = -jinganCurrentSlide * 100;
+            jinganCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            // 更新指示器状态
+            const dots = jinganIndicatorsContainer.querySelectorAll('.jingan-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === jinganCurrentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 下一张
+        function jinganNextSlide() {
+            jinganCurrentSlide = (jinganCurrentSlide + 1) % jinganTotalSlides;
+            updateJinganCarousel();
+        }
+
+        // 上一张
+        function jinganPrevSlide() {
+            jinganCurrentSlide = (jinganCurrentSlide - 1 + jinganTotalSlides) % jinganTotalSlides;
+            updateJinganCarousel();
+        }
+
+        // 自动轮播
+        function startJinganCarousel() {
+            jinganCarouselTimer = setInterval(jinganNextSlide, 5000);
+        }
+
+        // 事件监听
+        jinganControlPrev.addEventListener('click', jinganPrevSlide);
+        jinganControlNext.addEventListener('click', jinganNextSlide);
+
+        // 鼠标悬停暂停
+        const jinganCarouselWrapper = document.querySelector('.jingan-carousel-wrapper');
+        jinganCarouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(jinganCarouselTimer);
+        });
+
+        // 鼠标离开恢复
+        jinganCarouselWrapper.addEventListener('mouseleave', startJinganCarousel);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateJinganIndicators();
+            updateJinganCarousel();
+            startJinganCarousel();
+        });
+    </script>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>松江 代建项目</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* 文字部分样式 */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .text-section h3 {
+            font-size: 20px;
+            margin-bottom: 16px;
+            color: #2d3748;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a5568;
+            margin-bottom: 14px;
+        }
+
+        /* 轮播图容器样式 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .songjiang-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .songjiang-carousel-display {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .songjiang-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .songjiang-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .songjiang-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 控制按钮样式 */
+        .songjiang-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .songjiang-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .songjiang-control-prev {
+            left: 15px;
+        }
+
+        .songjiang-control-next {
+            right: 15px;
+        }
+
+        /* 指示器样式 */
+        .songjiang-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .songjiang-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .songjiang-indicator-dot.active {
+            background-color: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .songjiang-carousel-display {
+                height: 300px;
+            }
+            
+            .songjiang-carousel-control {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">松江 代建项目</h3>
+        <div class="content-wrapper">
+            <!-- 文字部分 -->
+            <div class="text-section">
+                <h3>育新项目|上海松江区【全过程代建】</h3>
+                <p>业主方为上海育新置业有限公司(松江国资)。项目位于松江老城，生活氛围浓厚。地块为旧改地块，项目拟打造兼具现代化和精致感的住宅商办混合社区，成为城市更新的亮点与名片。</p>
+                <p>产品类型:高层住宅、商办                              用地面积:13823㎡</p>
+                <p>开发时间:2023年                                     建筑面积:31793㎡</p>
+            </div>
+
+            <!-- 轮播图部分 -->
+            <div class="carousel-section">
+                <div class="songjiang-carousel-wrapper">
+                    <div class="songjiang-carousel-display">
+                        <div class="songjiang-carousel-track" id="songjiangCarouselTrack">
+                            <!-- 轮播图片 -->
+                            <div class="songjiang-carousel-slide">
+                                <img src="41.png" alt="松江项目图片1">
+                            </div>
+                            <div class="songjiang-carousel-slide">
+                                <img src="42.png" alt="松江项目图片2">
+                            </div>
+                            
+                            <div class="songjiang-carousel-slide">
+                                <img src="44.png" alt="松江项目图片3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="songjiang-carousel-control songjiang-control-prev" id="songjiangControlPrev">&lt;</button>
+                    <button class="songjiang-carousel-control songjiang-control-next" id="songjiangControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="songjiang-carousel-indicators" id="songjiangCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图核心变量（使用独特命名避免冲突）
+        const songjiangCarouselTrack = document.getElementById('songjiangCarouselTrack');
+        const songjiangControlPrev = document.getElementById('songjiangControlPrev');
+        const songjiangControlNext = document.getElementById('songjiangControlNext');
+        const songjiangIndicatorsContainer = document.getElementById('songjiangCarouselIndicators');
+        const songjiangTotalSlides = songjiangCarouselTrack.querySelectorAll('.songjiang-carousel-slide').length;
+        let songjiangCurrentSlide = 0;
+        let songjiangCarouselTimer;
+
+        // 生成指示器
+        function generateSongjiangIndicators() {
+            songjiangIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < songjiangTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `songjiang-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    songjiangCurrentSlide = i;
+                    updateSongjiangCarousel();
+                });
+                songjiangIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        // 更新轮播图状态
+        function updateSongjiangCarousel() {
+            // 计算滚动距离
+            const scrollValue = -songjiangCurrentSlide * 100;
+            songjiangCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            // 更新指示器状态
+            const dots = songjiangIndicatorsContainer.querySelectorAll('.songjiang-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === songjiangCurrentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 下一张
+        function songjiangNextSlide() {
+            songjiangCurrentSlide = (songjiangCurrentSlide + 1) % songjiangTotalSlides;
+            updateSongjiangCarousel();
+        }
+
+        // 上一张
+        function songjiangPrevSlide() {
+            songjiangCurrentSlide = (songjiangCurrentSlide - 1 + songjiangTotalSlides) % songjiangTotalSlides;
+            updateSongjiangCarousel();
+        }
+
+        // 自动轮播
+        function startSongjiangCarousel() {
+            songjiangCarouselTimer = setInterval(songjiangNextSlide, 5000);
+        }
+
+        // 事件监听
+        songjiangControlPrev.addEventListener('click', songjiangPrevSlide);
+        songjiangControlNext.addEventListener('click', songjiangNextSlide);
+
+        // 鼠标悬停暂停
+        const songjiangCarouselWrapper = document.querySelector('.songjiang-carousel-wrapper');
+        songjiangCarouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(songjiangCarouselTimer);
+        });
+
+        // 鼠标离开恢复
+        songjiangCarouselWrapper.addEventListener('mouseleave', startSongjiangCarousel);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateSongjiangIndicators();
+            updateSongjiangCarousel();
+            startSongjiangCarousel();
+        });
+    </script>
+</body>
+</html>
+                <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>商办开发经验（新变量）</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* 文字部分样式 */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding-top: 12px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 18px;
+        }
+
+        /* 轮播图容器样式 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .biz-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .biz-carousel-display {
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .biz-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .biz-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .biz-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 控制按钮样式 */
+        .biz-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .biz-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .biz-control-prev {
+            left: 15px;
+        }
+
+        .biz-control-next {
+            right: 15px;
+        }
+
+        /* 指示器样式 */
+        .biz-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .biz-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .biz-indicator-dot.active {
+            background-color: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .biz-carousel-display {
+                height: 300px;
+            }
+            
+            .biz-carousel-control {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">商办开发经验</h3>
+        <div class="content-wrapper">
+            <!-- 文字部分 -->
+            <div class="text-section">
+                <p>金地在上海拥有已开业及在建的商业综合体/写字楼项目13个。物业形态覆盖超甲级写字楼、大型商业综合体、星级酒店、城市公寓等。</p>
+                <p>通过专业化规划开发及运营服务，项目辐射的企业、商家、人群各项需求得到满足的同时，这些城市的核心资产也得到持续增值。</p>
+            </div>
+
+            <!-- 轮播图部分 -->
+            <div class="carousel-section">
+                <div class="biz-carousel-wrapper">
+                    <div class="biz-carousel-display">
+                        <div class="biz-carousel-track" id="bizCarouselTrack">
+                            <!-- 轮播图片 -->
+                            <div class="biz-carousel-slide">
+                                <img src="45.png" alt="商办项目图片1">
+                            </div>
+                            <div class="biz-carousel-slide">
+                                <img src="46.png" alt="商办项目图片2">
+                            </div>
+                            <div class="biz-carousel-slide">
+                                <img src="47.png" alt="商办项目图片3">
+                            </div>
+                            <div class="biz-carousel-slide">
+                                <img src="48.png" alt="商办项目图片3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="biz-carousel-control biz-control-prev" id="bizControlPrev">&lt;</button>
+                    <button class="biz-carousel-control biz-control-next" id="bizControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="biz-carousel-indicators" id="bizCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 全新变量命名，避免任何冲突
+        const bizCarouselTrack = document.getElementById('bizCarouselTrack');
+        const bizControlPrev = document.getElementById('bizControlPrev');
+        const bizControlNext = document.getElementById('bizControlNext');
+        const bizIndicatorsContainer = document.getElementById('bizCarouselIndicators');
+        const bizTotalSlides = bizCarouselTrack.querySelectorAll('.biz-carousel-slide').length;
+        let bizCurrentSlide = 0;
+        let bizCarouselTimer;
+
+        // 生成指示器
+        function generateBizIndicators() {
+            bizIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < bizTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `biz-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    bizCurrentSlide = i;
+                    updateBizCarousel();
+                });
+                bizIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        // 更新轮播图状态
+        function updateBizCarousel() {
+            const scrollValue = -bizCurrentSlide * 100;
+            bizCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            const dots = bizIndicatorsContainer.querySelectorAll('.biz-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === bizCurrentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 下一张
+        function bizNextSlide() {
+            bizCurrentSlide = (bizCurrentSlide + 1) % bizTotalSlides;
+            updateBizCarousel();
+        }
+
+        // 上一张
+        function bizPrevSlide() {
+            bizCurrentSlide = (bizCurrentSlide - 1 + bizTotalSlides) % bizTotalSlides;
+            updateBizCarousel();
+        }
+
+        // 自动轮播
+        function startBizCarousel() {
+            bizCarouselTimer = setInterval(bizNextSlide, 5000);
+        }
+
+        // 事件监听
+        bizControlPrev.addEventListener('click', bizPrevSlide);
+        bizControlNext.addEventListener('click', bizNextSlide);
+
+        // 鼠标悬停暂停
+        const bizCarouselWrapper = document.querySelector('.biz-carousel-wrapper');
+        bizCarouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(bizCarouselTimer);
+        });
+
+        // 鼠标离开恢复
+        bizCarouselWrapper.addEventListener('mouseleave', startBizCarousel);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateBizIndicators();
+            updateBizCarousel();
+            startBizCarousel();
+        });
+    </script>
+</body>
+</html>
+            <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产业园</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* 文字部分样式 */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding-top: 12px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 18px;
+        }
+
+        /* 轮播图容器样式 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .industry-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .industry-carousel-display {
+            width: 100%;
+            height: auto;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .industry-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .industry-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .industry-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 控制按钮样式 */
+        .industry-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .industry-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .industry-control-prev {
+            left: 15px;
+        }
+
+        .industry-control-next {
+            right: 15px;
+        }
+
+        /* 指示器样式 */
+        .industry-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .industry-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .industry-indicator-dot.active {
+            background-color: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .industry-carousel-display {
+                height: auto;
+            }
+            
+            .industry-carousel-control {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">产业园</h3>
+        <div class="content-wrapper">
+            <!-- 文字部分 -->
+            <div class="text-section">
+                <p>2016年6月，金地成立了专注于产业园开发的综合平台-一金地威新产业，聚焦生命科学、人工智能、文化创意等领域，以高标准打造精致的国际化全产业平台。金地的产业园业务已实现全国化布局，进驻华东、华北、东北、华中、华南、西部区域核心城市，并进军美国市场。</p>
+                <p>截至2022年12月，金地产业已进入18座城市，开发运营产业类项目共41个，管理面积约415万平方米，上海共落地12个产业园，覆盖闵行、黄浦、松江、嘉定、宝山等区。</p>
+            </div>
+
+            <!-- 轮播图部分 -->
+            <div class="carousel-section">
+                <div class="industry-carousel-wrapper">
+                    <div class="industry-carousel-display">
+                        <div class="industry-carousel-track" id="industryCarouselTrack">
+                            <!-- 轮播图片 -->
+                            <div class="industry-carousel-slide">
+                                <img src="50.png" alt="产业园图片1">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="51.png" alt="产业园图片2">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="52.png" alt="产业园图片3">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="53.png" alt="产业园图片3">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="industry-carousel-control industry-control-prev" id="industryControlPrev">&lt;</button>
+                    <button class="industry-carousel-control industry-control-next" id="industryControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="industry-carousel-indicators" id="industryCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图核心变量（使用industry前缀确保独立性）
+        const industryCarouselTrack = document.getElementById('industryCarouselTrack');
+        const industryControlPrev = document.getElementById('industryControlPrev');
+        const industryControlNext = document.getElementById('industryControlNext');
+        const industryIndicatorsContainer = document.getElementById('industryCarouselIndicators');
+        const industryTotalSlides = industryCarouselTrack.querySelectorAll('.industry-carousel-slide').length;
+        let industryCurrentSlide = 0;
+        let industryCarouselTimer;
+
+        // 生成指示器
+        function generateIndustryIndicators() {
+            industryIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < industryTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `industry-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    industryCurrentSlide = i;
+                    updateIndustryCarousel();
+                });
+                industryIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        // 更新轮播图状态
+        function updateIndustryCarousel() {
+            const scrollValue = -industryCurrentSlide * 100;
+            industryCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            const dots = industryIndicatorsContainer.querySelectorAll('.industry-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === industryCurrentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 下一张
+        function industryNextSlide() {
+            industryCurrentSlide = (industryCurrentSlide + 1) % industryTotalSlides;
+            updateIndustryCarousel();
+        }
+
+        // 上一张
+        function industryPrevSlide() {
+            industryCurrentSlide = (industryCurrentSlide - 1 + industryTotalSlides) % industryTotalSlides;
+            updateIndustryCarousel();
+        }
+
+        // 自动轮播
+        function startIndustryCarousel() {
+            industryCarouselTimer = setInterval(industryNextSlide, 5000);
+        }
+
+        // 事件监听
+        industryControlPrev.addEventListener('click', industryPrevSlide);
+        industryControlNext.addEventListener('click', industryNextSlide);
+
+        // 鼠标悬停暂停
+        const industryCarouselWrapper = document.querySelector('.industry-carousel-wrapper');
+        industryCarouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(industryCarouselTimer);
+        });
+
+        // 鼠标离开恢复
+        industryCarouselWrapper.addEventListener('mouseleave', startIndustryCarousel);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateIndustryIndicators();
+            updateIndustryCarousel();
+            startIndustryCarousel();
+        });
+    </script>
+</body>
+</html>
+            <!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>长租公寓</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        /* 文字部分样式 */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            padding-top: 12px;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #4a5568;
+            margin-bottom: 18px;
+        }
+
+        /* 轮播图容器样式 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+        }
+
+        .apartment-carousel-wrapper {
+            width: 100%;
+            position: relative;
+        }
+
+        .apartment-carousel-display {
+            width: 165%;
+            height: 500px;
+            overflow: hidden;
+            border-radius: 6px;
+        }
+
+        .apartment-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .apartment-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .apartment-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* 控制按钮样式 */
+        .apartment-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(0, 0, 0, 0.4);
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+        }
+
+        .apartment-carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+
+        .apartment-control-prev {
+            left: 15px;
+        }
+
+        .apartment-control-next {
+            right: -400px;
+        }
+
+        /* 指示器样式 */
+        .apartment-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .apartment-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .apartment-indicator-dot.active {
+            background-color: #fff;
+            width: 10px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 */
+        @media (max-width: 768px) {
+            .apartment-carousel-display {
+                height: 300px;
+            }
+            
+            .apartment-carousel-control {
+                width: 36px;
+                height: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <h3 class="text-2xl font-bold text-gray-900 mb-8">长租公寓</h3>
+        <div class="content-wrapper">
+            <!-- 文字部分 -->
+            <div class="text-section">
+                <p>8760城市菁英社区是金地打造的长租公寓品牌之一。“8760”的名字来源于社区的定位:一年365天*24小时的交互共享聚集地，诚意为客户提供全周期的贴心服务，打造一个有温度、有文化、有趣味的城市栖集地。</p>
+                <p>目前已进驻2个城市(上海、杭州)，管理10个长租公寓项目，共4588间。</p>
+            </div>
+
+            <!-- 轮播图部分 -->
+            <div class="carousel-section">
+                <div class="apartment-carousel-wrapper">
+                    <div class="apartment-carousel-display">
+                        <div class="apartment-carousel-track" id="apartmentCarouselTrack">
+                            <!-- 轮播图片 -->
+                            <div class="apartment-carousel-slide">
+                                <img src="56.png" alt="长租公寓图片1">
+                            </div>
+                            <div class="apartment-carousel-slide">
+                                <img src="57.png" alt="长租公寓图片2">
+                            </div>
+                            <div class="apartment-carousel-slide">
+                                <img src="58.png" alt="长租公寓图片3">
+                            </div>
+                            <div class="apartment-carousel-slide">
+                                <img src="59.png" alt="长租公寓图片4">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="apartment-carousel-control apartment-control-prev" id="apartmentControlPrev">&lt;</button>
+                    <button class="apartment-carousel-control apartment-control-next" id="apartmentControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="apartment-carousel-indicators" id="apartmentCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图核心变量（使用apartment前缀确保独立性）
+        const apartmentCarouselTrack = document.getElementById('apartmentCarouselTrack');
+        const apartmentControlPrev = document.getElementById('apartmentControlPrev');
+        const apartmentControlNext = document.getElementById('apartmentControlNext');
+        const apartmentIndicatorsContainer = document.getElementById('apartmentCarouselIndicators');
+        const apartmentTotalSlides = apartmentCarouselTrack.querySelectorAll('.apartment-carousel-slide').length;
+        let apartmentCurrentSlide = 0;
+        let apartmentCarouselTimer;
+
+        // 生成指示器
+        function generateApartmentIndicators() {
+            apartmentIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < apartmentTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `apartment-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    apartmentCurrentSlide = i;
+                    updateApartmentCarousel();
+                });
+                apartmentIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        // 更新轮播图状态
+        function updateApartmentCarousel() {
+            const scrollValue = -apartmentCurrentSlide * 100;
+            apartmentCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            const dots = apartmentIndicatorsContainer.querySelectorAll('.apartment-indicator-dot');
+            dots.forEach((dot, index) => {
+                if (index === apartmentCurrentSlide) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // 下一张
+        function apartmentNextSlide() {
+            apartmentCurrentSlide = (apartmentCurrentSlide + 1) % apartmentTotalSlides;
+            updateApartmentCarousel();
+        }
+
+        // 上一张
+        function apartmentPrevSlide() {
+            apartmentCurrentSlide = (apartmentCurrentSlide - 1 + apartmentTotalSlides) % apartmentTotalSlides;
+            updateApartmentCarousel();
+        }
+
+        // 自动轮播
+        function startApartmentCarousel() {
+            apartmentCarouselTimer = setInterval(apartmentNextSlide, 5000);
+        }
+
+        // 事件监听
+        apartmentControlPrev.addEventListener('click', apartmentPrevSlide);
+        apartmentControlNext.addEventListener('click', apartmentNextSlide);
+
+        // 鼠标悬停暂停
+        const apartmentCarouselWrapper = document.querySelector('.apartment-carousel-wrapper');
+        apartmentCarouselWrapper.addEventListener('mouseenter', () => {
+            clearInterval(apartmentCarouselTimer);
+        });
+
+        // 鼠标离开恢复
+        apartmentCarouselWrapper.addEventListener('mouseleave', startApartmentCarousel);
+
+        // 初始化
+        document.addEventListener('DOMContentLoaded', () => {
+            generateApartmentIndicators();
+            updateApartmentCarousel();
+            startApartmentCarousel();
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                
+                
+
+                    
+                           <canvas id="priceIndexChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                        
+                      
+            
+            
+            
+
+    <!-- 投资机会 -->
+    <!-- 投资机会 -->
+<section id="investment" class="py-20">
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">优质地块</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">优质地块推介</p>
+        </div>
+
+
+        <!-- 1. 上海优质标的推介 - 跳转至 shanghai.html -->
+        
+            <!-- 外层容器：控制上海和苏州卡片并列 -->
+<div class="flex flex-col md:flex-row gap-6">
+    <!-- 1. 上海优质标的推介 -->
+    <div class="card group flex-1"> <!-- flex-1 确保两卡片等宽 -->
+        <div class="bg-gradient-to-r from-orange-500 to-orange-500 text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">上海优质标的推介</h3>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-2 gap-4 mb-6"></div>
+            <div class="bg-orange-50 rounded-lg p-4 mb-4">
+                <p class="text-sm text-gray-700 mb-2 font-medium">地块名称：</p>
+                
+                <!-- 优化按钮容器样式，确保紧凑排列 -->
+                <div class="blocks-container">
+                    <a href="北中环学府科创区地块.html">
+                        <div class="orange-block">北中环学府科创区地块</div>
+                    </a>
+                    <a href="张江东翼创新区低密地块.html">
+                        <div class="orange-block">张江东翼创新区低密地块</div>
+                    </a>
+                    <a href="西上海都会心低密地块.html">
+                        <div class="orange-block">西上海都会心低密地块</div>
+                    </a>
+                </div>
+            </div>
+            <img src="97.png" class="w-full rounded-lg" alt="上海优质标的图片">
+        </div>
+    </div>
+
+
+    <!-- 2. 苏州优质标的推介 -->
+    <div class="card group flex-1"> <!-- flex-1 确保两卡片等宽 -->
+        <div class="bg-gradient-to-r from-green-600 to-emerald-600 text-white p-6">
+            <h3 class="text-2xl font-bold mb-2">苏州优质标的推介</h3>
+        </div>
+        <div class="p-6">
+            <div class="grid grid-cols-2 gap-4 mb-6"></div>
+            <div class="bg-green-50 rounded-lg p-4 mb-4">
+                <p class="text-sm text-gray-700 mb-2 font-medium">地块名称：</p>
+                
+                <div class="blocks-container">
+                    <a href="姑苏区地块.html">
+                        <div class="orange-block" style="background-color: #10b981;">姑苏区地块</div> <!-- 苏州用绿色按钮匹配主题 -->
+                    </a>
+                </div>
+            </div>
+            <img src="98.png" class="w-full rounded-lg" alt="苏州优质标的图片">
+        </div>
+    </div>
+</div>
+
+
+<!-- 补充样式：确保按钮布局紧凑且卡片并列生效 -->
+<style>
+    /* 按钮容器：紧凑排列 */
+    .blocks-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 8px; /* 更小的间距，更紧凑 */
+    }
+
+
+    /* 按钮样式：统一调整 */
+    .orange-block {
+        background-color: #ff9f1c;
+        color: white;
+        padding: 8px 12px; /* 紧凑内边距 */
+        border-radius: 4px;
+        font-size: 15px;
+        white-space: nowrap;
+        box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+        transition: all 0.2s ease;
+    }
+
+
+    .orange-block:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+        transform: translateY(-1px);
+    }
+
+
+    /* 卡片基础样式（如果原有样式中没有） */
+    .card {
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+
+    .card:hover {
+        transform: translateY(-3px);
+    }
+</style>
+
+
+
+
+        <!-- 3. 投建模式 - 跳转至 investment-model.html -->
+         <div class="flex flex-col md:flex-row gap-6">
+  <!-- 投建模式卡片 -->
+  <div class="card group flex-1">
+    <div class="bg-gradient-to-r from-yellow-600 to-orange-600 text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">投建模式</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-2 gap-4 mb-6"></div>
+      <div class="bg-yellow-50 rounded-lg p-4 mb-4">
+        <p class="text-sm text-gray-700 mb-2 font-medium">地块名称：</p>
+        <div class="blocks-container">
+          <a href="苏州吴中区地块.html" class="blocks-container mb-8 hover:shadow-lg hover:shadow-lg">
+            <div class="orange-block">苏州吴中区地块</div>
+          </a>
+          <a href="太湖度假区地块.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">太湖度假区地块</div>
+          </a>
+          <a href="昆山开发区地块.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">昆山开发区地块</div>
+          </a>
+        </div>
+      </div>
+      <img src="164.png" class="w-full rounded-lg">
+    </div>
+  </div>
+
+
+  <!-- 大宗物业推介卡片 -->
+  <div class="card group flex-1">
+    <div class="bg-gradient-to-r from-yellow-600 to-orange-600 text-white p-6">
+      <h3 class="text-2xl font-bold mb-2">大宗物业推介</h3>
+    </div>
+    <div class="p-6">
+      <div class="grid grid-cols-2 gap-4 mb-6"></div>
+      <div class="bg-yellow-50 rounded-lg p-4 mb-4">
+        <p class="text-sm text-gray-700 mb-2 font-medium">地块名称：</p>
+        <div class="blocks-container">
+          <a href="青浦西虹桥 服务式公寓.html" class="blocks-container mb-8 hover:shadow-lg hover:shadow-lg">
+            <div class="orange-block">青浦西虹桥 服务式公寓</div>
+          </a>
+          <a href="青浦赵巷 岚韵酒店.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">青浦赵巷 岚韵酒店</div>
+          </a>
+          <a href="泗泾方邻 社区商业.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">泗泾方邻 社区商业</div>
+          </a>
+          <a href="青浦 格林郡商业.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">青浦 格林郡商业</div>
+          </a>
+          <a href="松江新桥 长租公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">松江新桥 长租公寓</div>
+          </a>
+          <a href="松江中山街道 社区商业.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">松江中山街道 社区商业</div>
+          </a>
+          <a href="松江永丰 长租公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">松江永丰 长租公寓</div>
+          </a>
+          <a href="车墩方邻 社区商业.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">车墩方邻 社区商业</div>
+          </a>
+          <a href="徐汇 长租公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">徐汇 长租公寓</div>
+          </a>
+          <a href="浦东祝桥 长租公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">浦东祝桥 长租公寓</div>
+          </a>
+          <a href="闵行马桥 公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">闵行马桥 公寓</div>
+          </a>
+          <a href="奉贤老南桥、老南桥 长租公寓.html" class="blocks-container mb-8 hover:shadow-lg transition-shadow">
+            <div class="orange-block">奉贤老南桥、老南桥 长租公寓</div>
+          </a>
+        </div>
+      </div>
+      <img src="99.png" class="w-full rounded-lg">
+    </div>
+  </div>
+</div>
+</section>
+</div>
+<section id="合作模式" class="py-20">
+    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8">合作模式</h2>
+    </section>
+    <div class="grid md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+        <!-- 股+债模式 -->
+        <div class="aspect-square overflow-hidden rounded-lg group">
+            <a href="股+债.html" class="blocks-container">
+                <img src="167.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                     alt="股+债合作模式">
+            </a>
+        </div>
+        
+        <!-- 同股同权模式 -->
+        <div class="aspect-square overflow-hidden rounded-lg group">
+            <a href="同股同权.html" class="blocks-container">
+                <img src="166.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                     alt="同股同权合作模式">
+            </a>
+        </div>
+        
+        <!-- 纯债模式 -->
+        <div class="aspect-square overflow-hidden rounded-lg group">
+            <a href="纯债.html" class="blocks-container">
+                <img src="168.png" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" 
+                     alt="纯债合作模式">
+            </a>
+        </div>
+    </div>
+
+
+<style>
+/* 仅作用于"合作模式"模块内的元素 */
+#合作模式 .blocks-container {
+    margin-bottom: 0 !important; /* 只清除当前模块内的底部边距 */
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+#合作模式 a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    /* 其他样式仅影响当前模块内的a标签 */
+}
+
+/* 确保图片大小一致的关键样式 */
+#合作模式 img {
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: contain; /* 保持比例并覆盖容器，可能裁剪部分图片 */
+}
+</style>
+
+
+</section>
+
+
+
+    <!-- 页脚 -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-8 md:mb-0">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
+                            <span class="text-orange-600 font-bold text-xl">G</span>
+                        </div>
+                        <span class="text-2xl font-bold">金地集团</span>
+                    </div>
+                    <p class="text-gray-400 text-lg">做中国最有价值的国际化企业</p>
+                </div>
+                <div class="text-center md:text-right">
+                    <p class="text-gray-400 mb-3">联系我们</p>
+                    <p class="text-xl">+86 021 3912 9888</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 金地（集团）股份有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // 滚动动画
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-fadeInUp');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+
+        // 上海项目分布图
+        const shanghaiMapCtx = document.getElementById('shanghaiMapChart').getContext('2d');
+        new Chart(shanghaiMapCtx, {
+            type: 'bar',
+            data: {
+                labels: ['嘉定', '松江', '宝山', '青浦', '浦东', '闵行', '金山', '普陀', '长宁', '黄浦', '崇明', '徐汇', '静安', '奉贤'],
+                datasets: [{
+                    label: '项目数量',
+                    data: [13, 13, 7, 8, 6, 5, 3, 2, 1, 1, 1, 1, 1, 2],
+                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 1,
+                    borderRadius: 8,
+                    hoverBackgroundColor: 'rgba(255, 107, 53, 1)'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '金地在上海各区域项目分布',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        display: false
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            stepSize: 2,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 总资产与净资产趋势图
+        const assetsCtx = document.getElementById('assetsChart').getContext('2d');
+        new Chart(assetsCtx, {
+            type: 'line',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: '总资产(亿元)',
+                    data: [4194, 4628, 4016, 3348, 3738],
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }, {
+                    label: '净资产(亿元)',
+                    data: [630, 652, 651, 651, 651],
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '金地集团总资产与净资产趋势',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 房地产销售趋势图
+        const salesCtx = document.getElementById('salesChart').getContext('2d');
+        new Chart(salesCtx, {
+            type: 'bar',
+            data: {
+                labels: ['2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: '销售金额(亿元)',
+                    data: [2106, 2426, 2867, 2218, 1536],
+                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    borderWidth: 1,
+                    borderRadius: 8,
+                    yAxisID: 'y'
+                }, {
+                    label: '销售面积(万㎡)',
+                    data: [1079, 1195, 1377, 1020, 903],
+                    type: 'line',
+                    borderColor: 'rgba(231, 76, 60, 1)',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(231, 76, 60, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 6,
+                    pointHoverRadius: 8,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '金地集团房地产销售趋势',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: '销售金额(亿元)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: '销售面积(万㎡)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 全国商品房销售趋势图
+        const nationalSalesCtx = document.getElementById('nationalSalesChart').getContext('2d');
+        new Chart(nationalSalesCtx, {
+            type: 'line',
+            data: {
+                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025(1-7月)'],
+                datasets: [{
+                    label: '销售面积(万㎡)',
+                    data: [120649, 128495, 157349, 169408, 171654, 171558, 176086, 179433, 135837, 111735, 97385, 62396],
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    yAxisID: 'y'
+                }, {
+                    label: '成交金额(亿)',
+                    data: [76292, 87280, 117627, 133701, 149973, 159725, 173613, 181930, 133308, 116622, 84864, 43593],
+                    borderColor: 'rgba(245, 158, 11, 1)',
+                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
+                    borderWidth: 3,
+                    fill: true,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(245, 158, 11, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '全国商品房销售趋势',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        type: 'linear',
+                        display: true,
+                        position: 'left',
+                        title: {
+                            display: true,
+                            text: '销售面积(万㎡)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    y1: {
+                        type: 'linear',
+                        display: true,
+                        position: 'right',
+                        title: {
+                            display: true,
+                            text: '成交金额(亿)',
+                            font: {
+                                size: 14,
+                                weight: 'bold'
+                            }
+                        },
+                        grid: {
+                            drawOnChartArea: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 70城房价指数图
+        const priceIndexCtx = document.getElementById('priceIndexChart').getContext('2d');
+        new Chart(priceIndexCtx, {
+            type: 'line',
+            data: {
+                labels: ['2014-01', '2015-01', '2016-01', '2017-01', '2018-01', '2019-01', '2020-01', '2021-01', '2022-01', '2023-01', '2024-01', '2025-01'],
+                datasets: [{
+                    label: '一线城市',
+                    data: [100, 105, 120, 130, 135, 138, 140, 142, 140, 138, 135, 133],
+                    borderColor: 'rgba(231, 76, 60, 1)',
+                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(231, 76, 60, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }, {
+                    label: '二线城市',
+                    data: [100, 102, 108, 115, 120, 123, 125, 127, 125, 122, 118, 115],
+                    borderColor: 'rgba(255, 107, 53, 1)',
+                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }, {
+                    label: '三线城市',
+                    data: [100, 101, 105, 110, 115, 118, 120, 122, 120, 117, 113, 110],
+                    borderColor: 'rgba(16, 185, 129, 1)',
+                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                    borderWidth: 3,
+                    fill: false,
+                    tension: 0.4,
+                    pointBackgroundColor: 'rgba(16, 185, 129, 1)',
+                    pointBorderColor: '#fff',
+                    pointBorderWidth: 2,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '70个大中城市商品住宅销售价格同比指数',
+                        font: {
+                            size: 18,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        min: 90,
+                        max: 150,
+                        grid: {
+                            color: 'rgba(0, 0, 0, 0.05)'
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                            font: {
+                                size: 12
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // 资金面分析图
+        const investmentCtx = document.getElementById('investmentChart').getContext('2d');
+        new Chart(investmentCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['上海', '北京', '杭州', '成都', '苏州', '西安', '南京', '广州', '其他城市'],
+                datasets: [{
+                    data: [533, 2805, 741, 471, 161, 131, 96, 69, 405],
+                    backgroundColor: [
+                        'rgba(255, 107, 53, 0.8)',
+                        'rgba(245, 158, 11, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(231, 76, 60, 0.8)',
+                        'rgba(155, 89, 182, 0.8)',
+                        'rgba(236, 72, 153, 0.8)',
+                        'rgba(52, 152, 219, 0.8)',
+                        'rgba(16, 185, 129, 0.8)',
+                        'rgba(149, 165, 166, 0.8)'
+                    ],
+                    borderColor: '#fff',
+                    borderWidth: 2,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    title: {
+                        display: true,
+                        text: '2025年1-7月房企投资额分布',
+                        font: {
+                            size: 16,
+                            weight: 'bold'
+                        },
+                        padding: 20
+                    },
+                    legend: {
+                        position: 'right',
+                        labels: {
+                            padding: 15,
+                            font: {
+                                size: 12
+                            }
+                        }
+                    },
+                    tooltip: {
+                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                        padding: 12,
+                        cornerRadius: 8,
+                        titleFont: {
+                            size: 14,
+                            weight: 'bold'
+                        },
+                        bodyFont: {
+                            size: 13
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
