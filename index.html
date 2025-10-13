@@ -565,46 +565,49 @@
     </section>
 
 
-
-    <!-- 经营实力 -->
-    <section id="performance" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">经营实力</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">25Q1已偿还完全部公开债务，发展较稳健</p>
+<!-- 经营实力 -->
+<section id="performance" class="py-16 bg-gray-50"> <!-- 减少垂直内边距 -->
+    <div class="container mx-auto px-6">
+        <div class="text-center mb-12"> <!-- 减少标题下方间距 -->
+            <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">经营实力</h2>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">25Q1已偿还完全部公开债务，发展较稳健</p>
+        </div>
+        
+        <!-- 调整网格布局和卡片样式 -->
+        <div class="grid md:grid-cols-3 gap-6 mb-12"> <!-- 减少间距 -->
+            <!-- 统一调整卡片内边距和字体大小 -->
+            <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-shadow"> <!-- 减少内边距 -->
+                <i class="fas fa-coins text-4xl mb-4 opacity-80"></i> <!-- 缩小图标 -->
+                <h3 class="text-xl font-bold mb-2">销售金额</h3> <!-- 缩小字体 -->
+                <p class="text-4xl font-bold mb-2">2867亿</p>
+                <h3 class="text-xl font-bold mb-2">销售面积</h3>
+                <p class="text-4xl font-bold mb-3">1377万平方米</p>
+                <p class="text-lg text-orange-200">2021年</p> <!-- 缩小字体 -->
+                <p class="text-lg text-orange-200">房企排名第10</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8 mb-16">
-                <div class="bg-gradient-to-br from-orange-400 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                    <i class="fas fa-coins text-5xl mb-6 opacity-80"></i>
-                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
-                    <p class="text-5xl font-bold mb-3">2867亿</p>
-                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
-                    <p class="text-5xl font-bold mb-3">1377万平方米</p>
-                    <p class="text-xl text-orange-200">2021年</p>
-                    <p class="text-xl text-orange-200">房企排名第10</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-orange-300 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                    <i class="fas fa-chart-line text-5xl mb-6 opacity-80"></i>
-                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
-                    <p class="text-5xl font-bold mb-3">2218亿</p>
-                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
-                    <p class="text-5xl font-bold mb-3">1020万平方米</p>
-                    <p class="text-xl text-orange-200">2022年</p>
-                    <p class="text-xl text-orange-200">房企排名第7</p>
-                </div>
-                
-                <div class="bg-gradient-to-br from-yellow-400 to-orange-600 text-white rounded-xl p-8 shadow-xl hover:shadow-2xl transition-shadow">
-                    <i class="fas fa-hand-holding-usd text-5xl mb-6 opacity-80"></i>
-                    <h3 class="text-2xl font-bold mb-3">销售金额</h3>
-                    <p class="text-5xl font-bold mb-3">1536亿</p>
-                    <h3 class="text-2xl font-bold mb-3">销售面积</h3>
-                    <p class="text-5xl font-bold mb-3">903万平方米</p>
-                    <p class="text-xl text-orange-200">2023年</p>
-                    <p class="text-xl text-orange-200">房企排名第10</p>
-                </div>
+            <div class="bg-gradient-to-br from-orange-300 to-orange-600 text-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                <i class="fas fa-chart-line text-4xl mb-4 opacity-80"></i>
+                <h3 class="text-xl font-bold mb-2">销售金额</h3>
+                <p class="text-4xl font-bold mb-2">2218亿</p>
+                <h3 class="text-xl font-bold mb-2">销售面积</h3>
+                <p class="text-4xl font-bold mb-3">1020万平方米</p>
+                <p class="text-lg text-orange-200">2022年</p>
+                <p class="text-lg text-orange-200">房企排名第7</p>
             </div>
+            
+            <div class="bg-gradient-to-br from-yellow-400 to-orange-600 text-white rounded-xl p-6 shadow-xl hover:shadow-2xl transition-shadow">
+                <i class="fas fa-hand-holding-usd text-4xl mb-4 opacity-80"></i>
+                <h3 class="text-xl font-bold mb-2">销售金额</h3>
+                <p class="text-4xl font-bold mb-2">1536亿</p>
+                <h3 class="text-xl font-bold mb-2">销售面积</h3>
+                <p class="text-4xl font-bold mb-3">903万平方米</p>
+                <p class="text-lg text-orange-200">2023年</p>
+                <p class="text-lg text-orange-200">房企排名第10</p>
+            </div>
+        </div>
+    </div>
+</section>
             
             <div class="mb-16">
                 <div class="grid md:grid-cols-4 gap-8">
@@ -1157,11 +1160,17 @@
       </div>
     </div>
   </div>
+        <style>
+            .small-img {
+    width: 70%;
+    height: auto;
+}
+        </style>
 
 
                         </div>
                         
-                            <img src="165.png" alt="图片1" class="w-full h-auto rounded mb-24">
+                            <img src="165.png" alt="图片1" class="w-full h-auto rounded mb-24 small-img mx-auto">
                             
                             
         </div>       
@@ -2638,7 +2647,8 @@
     display: flex;
     flex-wrap: wrap; /* 移动端自动换行 */
     gap: 30px; /* 板块之间的间距 */
-    padding: 20px;
+    padding: 40px; /* 容器内边距 */
+    justify-content: center;
   }
 
   /* 单个板块容器：控制内部文字与图片布局 */
@@ -2659,11 +2669,16 @@
   .text-area {
     margin-bottom: 20px;
   }
+    .image-area {
+    display: flex;
+    justify-content: center;
+  }
 
-  /* 图片区域通用样式 */
+
+  
   .image-area img {
-    width: 100%;
-    height: 600px;
+    width: 70%;
+    height: 450px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -2674,8 +2689,7 @@
   <div class="section">
     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">产品能力</h2>
     <div class="text-area">
-      <p>金地上海产品在2020年-2024年获得国内外奖项及认证66项。如上海金地峯范(2020)为住建部智能建造试点项目:</p>
-      <p>金地范、金地嘉源、金地丰盛道、马桥·玖玺、金地嘉峯汇等获得克尔瑞全国十大品质作品。</p>
+      <p>金地上海产品在2020年-2024年获得国内外奖项及认证66项。如上海金地峯范(2020)为住建部智能建造试点项目:金地范、金地嘉源、金地丰盛道、马桥·玖玺、金地嘉峯汇等获得克尔瑞全国十大品质作品。</p>
     </div>
     <div class="image-area">
       <img src="14.png" alt="产品能力相关图片">
@@ -2686,8 +2700,8 @@
   <div class="section">
     <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-4">人才储备</h2>
     <div class="text-area">
-      <p>金地集团的人才学历层次丰富且优质。其中，硕士学历占比达 59%，本科学历占 34%，还有少量博士学历人才。</p>
-      <p>在人才来源方面，多元的学历结构与广泛的高校来源，为企业发展提供了坚实的智力支撑</p>
+      <p>金地集团的人才学历层次丰富且优质。其中，硕士学历占比达 59%，本科学历占 34%，还有少量博士学历人才。在人才来源方面，多元的学历结构与广泛的高校来源，为企业发展提供了坚实的智力支撑。</p>
+
     </div>
     <div class="image-area">
       <img src="16.png" alt="人员构成相关图片">
@@ -3792,6 +3806,8 @@
         .carousel-section {
             flex: 1;
             min-width: 300px;
+            max-width: 500px; /* 根据需要调整这个值 */
+            margin: 0 auto;
         }
 
         .industry-carousel-wrapper {
@@ -3801,7 +3817,7 @@
 
         .industry-carousel-display {
             width: 100%;
-            height: auto;
+            height: 300px;
             overflow: hidden;
             border-radius: 6px;
         }
@@ -4019,7 +4035,7 @@
     </script>
 </body>
 </html>
-            <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -4067,10 +4083,10 @@
             width: 100%;
             position: relative;
         }
-
+        /* 缩小轮播图显示区域 */
         .apartment-carousel-display {
-            width: 165%;
-            height: 500px;
+            width: 100%; 
+            height: 350px; 
             overflow: hidden;
             border-radius: 6px;
         }
@@ -4087,11 +4103,11 @@
             height: 100%;
             flex-shrink: 0;
         }
-
+        /* 调整图片在容器内的显示 */
         .apartment-carousel-slide img {
             width: 100%;
             height: 100%;
-            object-fit: contain;
+            object-fit: contain; 
         }
 
         /* 控制按钮样式 */
@@ -4121,9 +4137,9 @@
         .apartment-control-prev {
             left: 15px;
         }
-
+        /* 调整下一张按钮位置 */
         .apartment-control-next {
-            right: -400px;
+            right: 15px; 
         }
 
         /* 指示器样式 */
@@ -4155,7 +4171,7 @@
         /* 响应式调整 */
         @media (max-width: 768px) {
             .apartment-carousel-display {
-                height: 300px;
+                height: 250px; 
             }
             
             .apartment-carousel-control {
@@ -4276,6 +4292,7 @@
             clearInterval(apartmentCarouselTimer);
         });
 
+
         // 鼠标离开恢复
         apartmentCarouselWrapper.addEventListener('mouseleave', startApartmentCarousel);
 
@@ -4288,36 +4305,13 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                
-                
-
-                    
-                           <canvas id="priceIndexChart"></canvas>
-                        </div>
-                    </div>
-                </div>
-            </div>
                         
                       
             
             
             
 
-    <!-- 投资机会 -->
-    <!-- 投资机会 -->
+
 <section id="investment" class="py-20">
     <div class="container mx-auto px-6">
         <div class="text-center mb-16">
@@ -4591,599 +4585,3 @@
             </div>
         </div>
     </footer>
-
-    <script>
-        // 平滑滚动
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // 导航栏滚动效果
-        window.addEventListener('scroll', function() {
-            const nav = document.querySelector('.navbar');
-            if (window.scrollY > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-        });
-
-        // 滚动动画
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
-
-        const observer = new IntersectionObserver(function(entries) {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate-fadeInUp');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
-
-        // 上海项目分布图
-        const shanghaiMapCtx = document.getElementById('shanghaiMapChart').getContext('2d');
-        new Chart(shanghaiMapCtx, {
-            type: 'bar',
-            data: {
-                labels: ['嘉定', '松江', '宝山', '青浦', '浦东', '闵行', '金山', '普陀', '长宁', '黄浦', '崇明', '徐汇', '静安', '奉贤'],
-                datasets: [{
-                    label: '项目数量',
-                    data: [13, 13, 7, 8, 6, 5, 3, 2, 1, 1, 1, 1, 1, 2],
-                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    borderWidth: 1,
-                    borderRadius: 8,
-                    hoverBackgroundColor: 'rgba(255, 107, 53, 1)'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '金地在上海各区域项目分布',
-                        font: {
-                            size: 18,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            stepSize: 2,
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // 总资产与净资产趋势图
-        const assetsCtx = document.getElementById('assetsChart').getContext('2d');
-        new Chart(assetsCtx, {
-            type: 'line',
-            data: {
-                labels: ['2019', '2020', '2021', '2022', '2023'],
-                datasets: [{
-                    label: '总资产(亿元)',
-                    data: [4194, 4628, 4016, 3348, 3738],
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8
-                }, {
-                    label: '净资产(亿元)',
-                    data: [630, 652, 651, 651, 651],
-                    borderColor: 'rgba(16, 185, 129, 1)',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '金地集团总资产与净资产趋势',
-                        font: {
-                            size: 18,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // 房地产销售趋势图
-        const salesCtx = document.getElementById('salesChart').getContext('2d');
-        new Chart(salesCtx, {
-            type: 'bar',
-            data: {
-                labels: ['2019', '2020', '2021', '2022', '2023'],
-                datasets: [{
-                    label: '销售金额(亿元)',
-                    data: [2106, 2426, 2867, 2218, 1536],
-                    backgroundColor: 'rgba(255, 107, 53, 0.8)',
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    borderWidth: 1,
-                    borderRadius: 8,
-                    yAxisID: 'y'
-                }, {
-                    label: '销售面积(万㎡)',
-                    data: [1079, 1195, 1377, 1020, 903],
-                    type: 'line',
-                    borderColor: 'rgba(231, 76, 60, 1)',
-                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                    borderWidth: 3,
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(231, 76, 60, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 6,
-                    pointHoverRadius: 8,
-                    yAxisID: 'y1'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '金地集团房地产销售趋势',
-                        font: {
-                            size: 18,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: '销售金额(亿元)',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: '销售面积(万㎡)',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            drawOnChartArea: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // 全国商品房销售趋势图
-        const nationalSalesCtx = document.getElementById('nationalSalesChart').getContext('2d');
-        new Chart(nationalSalesCtx, {
-            type: 'line',
-            data: {
-                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025(1-7月)'],
-                datasets: [{
-                    label: '销售面积(万㎡)',
-                    data: [120649, 128495, 157349, 169408, 171654, 171558, 176086, 179433, 135837, 111735, 97385, 62396],
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
-                    yAxisID: 'y'
-                }, {
-                    label: '成交金额(亿)',
-                    data: [76292, 87280, 117627, 133701, 149973, 159725, 173613, 181930, 133308, 116622, 84864, 43593],
-                    borderColor: 'rgba(245, 158, 11, 1)',
-                    backgroundColor: 'rgba(245, 158, 11, 0.1)',
-                    borderWidth: 3,
-                    fill: true,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(245, 158, 11, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7,
-                    yAxisID: 'y1'
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '全国商品房销售趋势',
-                        font: {
-                            size: 18,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        type: 'linear',
-                        display: true,
-                        position: 'left',
-                        title: {
-                            display: true,
-                            text: '销售面积(万㎡)',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    y1: {
-                        type: 'linear',
-                        display: true,
-                        position: 'right',
-                        title: {
-                            display: true,
-                            text: '成交金额(亿)',
-                            font: {
-                                size: 14,
-                                weight: 'bold'
-                            }
-                        },
-                        grid: {
-                            drawOnChartArea: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // 70城房价指数图
-        const priceIndexCtx = document.getElementById('priceIndexChart').getContext('2d');
-        new Chart(priceIndexCtx, {
-            type: 'line',
-            data: {
-                labels: ['2014-01', '2015-01', '2016-01', '2017-01', '2018-01', '2019-01', '2020-01', '2021-01', '2022-01', '2023-01', '2024-01', '2025-01'],
-                datasets: [{
-                    label: '一线城市',
-                    data: [100, 105, 120, 130, 135, 138, 140, 142, 140, 138, 135, 133],
-                    borderColor: 'rgba(231, 76, 60, 1)',
-                    backgroundColor: 'rgba(231, 76, 60, 0.1)',
-                    borderWidth: 3,
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(231, 76, 60, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }, {
-                    label: '二线城市',
-                    data: [100, 102, 108, 115, 120, 123, 125, 127, 125, 122, 118, 115],
-                    borderColor: 'rgba(255, 107, 53, 1)',
-                    backgroundColor: 'rgba(255, 107, 53, 0.1)',
-                    borderWidth: 3,
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(255, 107, 53, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }, {
-                    label: '三线城市',
-                    data: [100, 101, 105, 110, 115, 118, 120, 122, 120, 117, 113, 110],
-                    borderColor: 'rgba(16, 185, 129, 1)',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    borderWidth: 3,
-                    fill: false,
-                    tension: 0.4,
-                    pointBackgroundColor: 'rgba(16, 185, 129, 1)',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 2,
-                    pointRadius: 5,
-                    pointHoverRadius: 7
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '70个大中城市商品住宅销售价格同比指数',
-                        font: {
-                            size: 18,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: false,
-                        min: 90,
-                        max: 150,
-                        grid: {
-                            color: 'rgba(0, 0, 0, 0.05)'
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    x: {
-                        grid: {
-                            display: false
-                        },
-                        ticks: {
-                            font: {
-                                size: 12
-                            }
-                        }
-                    }
-                }
-            }
-        });
-
-        // 资金面分析图
-        const investmentCtx = document.getElementById('investmentChart').getContext('2d');
-        new Chart(investmentCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['上海', '北京', '杭州', '成都', '苏州', '西安', '南京', '广州', '其他城市'],
-                datasets: [{
-                    data: [533, 2805, 741, 471, 161, 131, 96, 69, 405],
-                    backgroundColor: [
-                        'rgba(255, 107, 53, 0.8)',
-                        'rgba(245, 158, 11, 0.8)',
-                        'rgba(16, 185, 129, 0.8)',
-                        'rgba(231, 76, 60, 0.8)',
-                        'rgba(155, 89, 182, 0.8)',
-                        'rgba(236, 72, 153, 0.8)',
-                        'rgba(52, 152, 219, 0.8)',
-                        'rgba(16, 185, 129, 0.8)',
-                        'rgba(149, 165, 166, 0.8)'
-                    ],
-                    borderColor: '#fff',
-                    borderWidth: 2,
-                    hoverOffset: 4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    title: {
-                        display: true,
-                        text: '2025年1-7月房企投资额分布',
-                        font: {
-                            size: 16,
-                            weight: 'bold'
-                        },
-                        padding: 20
-                    },
-                    legend: {
-                        position: 'right',
-                        labels: {
-                            padding: 15,
-                            font: {
-                                size: 12
-                            }
-                        }
-                    },
-                    tooltip: {
-                        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-                        padding: 12,
-                        cornerRadius: 8,
-                        titleFont: {
-                            size: 14,
-                            weight: 'bold'
-                        },
-                        bodyFont: {
-                            size: 13
-                        }
-                    }
-                }
-            }
-        });
-    </script>
-</body>
-</html>
