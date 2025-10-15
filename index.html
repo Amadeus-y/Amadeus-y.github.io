@@ -1606,87 +1606,300 @@
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">经典代建项目</h2>
                 <p class="text-xl text-gray-600 max-w-3xl mx-auto">金地在上海—多元化业务</p>
             </div>
+
+    <div class="mb-16">
+    <h3 class="text-2xl font-bold text-gray-900 mb-8">松江泗泾项目|上海松江区【全过程代建】</h3>
+        
+           
+<title>文字与轮播图并列布局</title>
+<style>
+    /* 主容器 - 实现并列布局的核心 */
+    .content-container {
+        display: flex;
+        flex-wrap: wrap; /* 小屏幕自动换行 */
+        gap: 30px; /* 文字与轮播图之间的间距 */
+        padding: 20px;
+        max-width: 1400px; /* 限制最大宽度，避免过宽 */
+        margin: 0 auto; /* 居中显示 */
+    }
+
+    /* 文字区域样式 */
+    .text-area {
+        flex: 1; /* 自动占据剩余空间 */
+        min-width: 800px; /* 最小宽度，确保小屏幕显示正常 */
+    }
+
+    .text-area h2 {
+        font-size: 28px;
+        margin-bottom: 16px;
+        color: #000000;
+    }
+
+    .text-area h3 {
+        font-size: 20px;
+        margin-bottom: 12px;
+        color: #000000;
+    }
+
+    .text-area p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #000000;
+        margin-bottom: 10px;
+    }
+
+    /* 轮播图容器 - 与文字区域并列 */
+    .slider-container {
+        flex: 1; /* 与文字区域平分空间 */
+        min-width: 300px; /* 最小宽度 */
+        position: relative;
+        margin-top: -80px;
+    }
+
+    /* 轮播图显示区域 */
+    .slider-view {
+        width: 100%;
+        height: 400px; /* 固定高度，可调整 */
+        overflow: hidden;
+        border-radius: 8px; /* 圆角美化 */
+    }
+
+    /* 轮播图滚动容器 */
+    .slider-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    /* 轮播图片样式 */
+    .slider-image {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0; /* 禁止收缩，确保图片完整显示 */
+    }
+
+    .slider-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain; /* 保持比例填充容器 */
+    }
+
+    /* 轮播按钮样式 */
+    .slider-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: background-color 0.3s;
+    }
+
+    .slider-button:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .button-prev {
+        left: 10px;
+    }
+
+    .button-next {
+        right: 10px;
+    }
+
+    /* 响应式调整 - 小屏幕自动堆叠 */
+    @media (max-width: 768px) {
+        .content-container {
+            flex-direction: column;
+        }
+        
+        .slider-view {
+            height: 300px; /* 小屏幕减小高度 */
+        }
+    }
+</style>
+     
+<div class="content-container">
+    <!-- 文字部分 -->
+    <div class="text-area">
+        
+        
+        <p>业主方为上海泗泾城市更新建设有限公司(镇属国企)。本项目为住宅地块、地块位于松江泗泾板块，外郊环之间，距虹桥商务区10km，距七宝商圈10km，距离徐家汇19km，交通网络发达，市区来往便利。拟以新精致主义理念打造酒店化、立体化、公建化、景观化、地标化的低密住区新范式。</p>
+        <p>产品类型:洋房、联排住宅                              用地面积:78659㎡</p>
+        <p>开发时间:2025年                                     建筑面积:188782㎡</p>
+    </div>
+
+    <!-- 轮播图部分 -->
+    <div class="slider-container">
+        <div class="slider-view">
+            <div class="slider-track" id="slideTrack">
+                <!-- 轮播图片（4张） -->
+                <div class="slider-image">
+                    <img src="172.png" alt="临港项目图片1">
+                </div>
+                <div class="slider-image">
+                    <img src="173.png" alt="临港项目图片2">
+                </div>
+                <div class="slider-image">
+                    <img src="174.png" alt="临港项目图片3">
+                </div>
+                <div class="slider-image">
+                    <img src="175.png" alt="临港项目图片4">
+                </div>
+            </div>
+        </div>
+        <!-- 轮播控制按钮 -->
+        <button class="slider-button button-prev" id="prevBtn">&lt;</button>
+        <button class="slider-button button-next" id="nextBtn">&gt;</button>
+    </div>
+</div>
+
+<script>
+    // 轮播图变量（使用独特命名避免冲突）
+    const slideTrack = document.getElementById('slideTrack');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const imageCount = 4; // 总图片数量
+    let currentIndex = 0; // 当前显示索引
+    let slideInterval;
+
+    // 切换到指定幻灯片
+    function moveToSlide(index) {
+        // 确保索引在有效范围内
+        if (index < 0) index = imageCount - 1;
+        if (index >= imageCount) index = 0;
+        
+        currentIndex = index;
+        // 计算滚动距离（百分比）
+        const scrollValue = -currentIndex * 100;
+        slideTrack.style.transform = `translateX(${scrollValue}%)`;
+    }
+
+    // 下一张
+    function nextSlide() {
+        moveToSlide(currentIndex + 1);
+    }
+
+    // 上一张
+    function prevSlide() {
+        moveToSlide(currentIndex - 1);
+    }
+
+    // 自动轮播
+    function startSlideInterval() {
+        slideInterval = setInterval(nextSlide, 4000); // 4秒切换一次
+    }
+
+    // 事件监听
+    prevBtn.addEventListener('click', prevSlide);
+    nextBtn.addEventListener('click', nextSlide);
+
+    // 鼠标悬停暂停自动轮播
+    const sliderContainer = document.querySelector('.slider-container');
+    sliderContainer.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+    });
+
+    // 鼠标离开恢复自动轮播
+    sliderContainer.addEventListener('mouseleave', startSlideInterval);
+
+    // 初始化
+    document.addEventListener('DOMContentLoaded', () => {
+        moveToSlide(0); // 显示第一张
+        startSlideInterval(); // 启动自动轮播
+    });
+</script>
+</div>
+
             
             <div class="mb-16">
-                <h3 class="text-2xl font-bold text-gray-900 mb-8">临港TOD项目|上海临港自贸区【全过程代建】</h3>
-                    
-                       
+    <h3 class="text-2xl font-bold text-gray-900 mb-8">临港TOD项目|上海临港自贸区【全过程代建】</h3>
+        
     <title>文字与轮播图并列布局</title>
     <style>
-        /* 主容器 - 实现并列布局的核心 */
-        .content-wrapper {
+        /* 主容器样式 */
+        .main-wrapper {
             display: flex;
-            flex-wrap: wrap; /* 小屏幕自动换行 */
-            gap: 30px; /* 文字与轮播图之间的间距 */
+            flex-wrap: wrap;
+            gap: 30px;
             padding: 20px;
-            max-width: 1400px; /* 限制最大宽度，避免过宽 */
-            margin: 0 auto; /* 居中显示 */
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
         /* 文字区域样式 */
-        .text-section {
-            flex: 1; /* 自动占据剩余空间 */
-            min-width: 800px; /* 最小宽度，确保小屏幕显示正常 */
+        .description-section {
+            flex: 1;
+            min-width: 800px;
         }
 
-        .text-section h2 {
+        .description-section h2 {
             font-size: 28px;
             margin-bottom: 16px;
-            color: #2d3748;
+            color: #000000;
         }
 
-        .text-section h3 {
+        .description-section h3 {
             font-size: 20px;
             margin-bottom: 12px;
-            color: #4a5568;
+            color: #000000;
         }
 
-        .text-section p {
+        .description-section p {
             font-size: 16px;
             line-height: 1.6;
-            color: #718096;
+            color: #000000;
             margin-bottom: 10px;
         }
 
-        /* 轮播图容器 - 与文字区域并列 */
-        .carousel-outer {
-            flex: 1; /* 与文字区域平分空间 */
-            min-width: 300px; /* 最小宽度 */
+        /* 轮播图容器 */
+        .image-slider-wrapper {
+            flex: 1;
+            min-width: 300px;
             position: relative;
             margin-top: -80px;
         }
 
         /* 轮播图显示区域 */
-        .carousel-display {
+        .image-display {
             width: 100%;
-            height: 400px; /* 固定高度，可调整 */
+            height: 400px;
             overflow: hidden;
-            border-radius: 8px; /* 圆角美化 */
+            border-radius: 8px;
         }
 
-        /* 轮播图滚动容器 */
-        .carousel-scroll {
+        /* 轮播图滚动轨道 */
+        .image-track {
             display: flex;
             width: 100%;
             height: 100%;
             transition: transform 0.5s ease-in-out;
         }
 
-        /* 轮播图片样式 */
-        .carousel-item {
+        /* 轮播图片项 */
+        .slide-item {
             width: 100%;
             height: 100%;
-            flex-shrink: 0; /* 禁止收缩，确保图片完整显示 */
+            flex-shrink: 0;
         }
 
-        .carousel-item img {
+        .slide-item img {
             width: 100%;
             height: 100%;
-            object-fit: contain; /* 保持比例填充容器 */
+            object-fit: contain;
         }
 
-        /* 轮播按钮样式 */
-        .carousel-control {
+        /* 轮播控制按钮 */
+        .slide-control {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
@@ -1704,117 +1917,115 @@
             transition: background-color 0.3s;
         }
 
-        .carousel-control:hover {
+        .slide-control:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
 
-        .control-prev {
+        .control-back {
             left: 10px;
         }
 
-        .control-next {
+        .control-forward {
             right: 10px;
         }
 
-        /* 响应式调整 - 小屏幕自动堆叠 */
+        /* 响应式调整 */
         @media (max-width: 768px) {
-            .content-wrapper {
+            .main-wrapper {
                 flex-direction: column;
             }
             
-            .carousel-display {
-                height: 300px; /* 小屏幕减小高度 */
+            .image-display {
+                height: 300px;
             }
         }
     </style>
-         
-    <div class="content-wrapper">
+     
+    <div class="main-wrapper">
         <!-- 文字部分 -->
-        <div class="text-section">
-            
-            
+        <div class="description-section">
             <p>业主方为上海临港经济发展(集团)有限公司(市属国企)。本项目为TOD住宅地块、紧邻滴水湖核心片区环湖区域，地块地库与西侧两港快线站点直接连通、交通便利，将打造临港片区品质标杆、封面作品。</p>
             <p>产品类型:叠加、高层住宅                              用地面积:78659㎡</p>
             <p>开发时间:2023年                                     建筑面积:188782㎡</p>
         </div>
 
         <!-- 轮播图部分 -->
-        <div class="carousel-outer">
-            <div class="carousel-display">
-                <div class="carousel-scroll" id="scrollContainer">
-                    <!-- 轮播图片（3张） -->
-                    <div class="carousel-item">
+        <div class="image-slider-wrapper">
+            <div class="image-display">
+                <div class="image-track" id="imageTrack">
+                    <!-- 轮播图片 -->
+                    <div class="slide-item">
                         <img src="33.png" alt="临港项目图片1">
                     </div>
-                    <div class="carousel-item">
+                    <div class="slide-item">
                         <img src="34.png" alt="临港项目图片2">
                     </div>
-                    <div class="carousel-item">
+                    <div class="slide-item">
                         <img src="35.png" alt="临港项目图片3">
                     </div>
                 </div>
             </div>
-            <!-- 轮播控制按钮 -->
-            <button class="carousel-control control-prev" id="btnPrev">&lt;</button>
-            <button class="carousel-control control-next" id="btnNext">&gt;</button>
+            <!-- 控制按钮 -->
+            <button class="slide-control control-back" id="backBtn">&lt;</button>
+            <button class="slide-control control-forward" id="forwardBtn">&gt;</button>
         </div>
     </div>
 
     <script>
-        // 轮播图变量（使用独特命名避免冲突）
-        const scrollContainer = document.getElementById('scrollContainer');
-        const prevButton = document.getElementById('btnPrev');
-        const nextButton = document.getElementById('btnNext');
-        const totalSlides = 3; // 总图片数量
-        let currentSlidePos = 0; // 当前显示索引
-        let autoSlideTimer;
+        // 轮播图变量
+        const imageTrack = document.getElementById('imageTrack');
+        const backBtn = document.getElementById('backBtn');
+        const forwardBtn = document.getElementById('forwardBtn');
+        const totalImages = 3;
+        let activeIndex = 0;
+        let autoRotateTimer;
 
-        // 切换到指定幻灯片
-        function switchToSlide(position) {
-            // 确保索引在有效范围内
-            if (position < 0) position = totalSlides - 1;
-            if (position >= totalSlides) position = 0;
+        // 切换到指定图片
+        function setActiveSlide(position) {
+            if (position < 0) position = totalImages - 1;
+            if (position >= totalImages) position = 0;
             
-            currentSlidePos = position;
-            // 计算滚动距离（百分比）
-            const scrollPercent = -currentSlidePos * 100;
-            scrollContainer.style.transform = `translateX(${scrollPercent}%)`;
+            activeIndex = position;
+            const translateValue = -activeIndex * 100;
+            imageTrack.style.transform = `translateX(${translateValue}%)`;
         }
 
-        // 下一张
-        function goToNextSlide() {
-            switchToSlide(currentSlidePos + 1);
+        // 下一张图片
+        function showNextImage() {
+            setActiveSlide(activeIndex + 1);
         }
 
-        // 上一张
-        function goToPrevSlide() {
-            switchToSlide(currentSlidePos - 1);
+        // 上一张图片
+        function showPrevImage() {
+            setActiveSlide(activeIndex - 1);
         }
 
-        // 自动轮播
-        function startAutoSlide() {
-            autoSlideTimer = setInterval(goToNextSlide, 4000); // 4秒切换一次
+        // 启动自动轮播
+        function initiateAutoRotate() {
+            autoRotateTimer = setInterval(showNextImage, 4000);
         }
 
         // 事件监听
-        prevButton.addEventListener('click', goToPrevSlide);
-        nextButton.addEventListener('click', goToNextSlide);
+        backBtn.addEventListener('click', showPrevImage);
+        forwardBtn.addEventListener('click', showNextImage);
 
-        // 鼠标悬停暂停自动轮播
-        const carouselOuter = document.querySelector('.carousel-outer');
-        carouselOuter.addEventListener('mouseenter', () => {
-            clearInterval(autoSlideTimer);
+        // 鼠标悬停暂停
+        const sliderWrapper = document.querySelector('.image-slider-wrapper');
+        sliderWrapper.addEventListener('mouseenter', () => {
+            clearInterval(autoRotateTimer);
         });
 
-        // 鼠标离开恢复自动轮播
-        carouselOuter.addEventListener('mouseleave', startAutoSlide);
+        // 鼠标离开恢复
+        sliderWrapper.addEventListener('mouseleave', initiateAutoRotate);
 
         // 初始化
         document.addEventListener('DOMContentLoaded', () => {
-            switchToSlide(0); // 显示第一张
-            startAutoSlide(); // 启动自动轮播
+            setActiveSlide(0);
+            initiateAutoRotate();
         });
     </script>
+</div>
+
             <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
