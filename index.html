@@ -1253,54 +1253,89 @@
     </div>
   </div>
 </div>
-   <style>
-        /* 视频样式 */
-        video {
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta 
+        name="viewport" 
+        content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,shrink-to-fit=no"
+    >
+    <title>泰州姜堰项目展示区规划</title>
+    <!-- 引入腾讯云TCPlayer样式 -->
+    <link 
+        href="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/tcplayer.min.css" 
+        rel="stylesheet"
+    >
+    <!-- 引入视频播放所需的脚本 -->
+    <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.2/libs/flv.min.1.6.2.js"></script>
+    <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.2.1/libs/hls.min.0.13.2m.js"></script>
+    <script src="https://video-public-1259789488.cos.ap-guangzhou.myqcloud.com/lib/dash.all.min.js"></script>
+    <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v4.5.0/tcplayer.v4.5.0.min.js"></script>
+    
+    <style>
+        /* 页面基础样式 */
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* 标题样式 */
+        .section-title {
+            margin-top: 40px;
+            color: #2c3e50;
+            text-align: center;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        
+        /* 视频播放器样式 */
+        .video-container {
             width: 80%;
             max-width: 1200px;
-            display: block;
             margin: 30px auto;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            overflow: hidden;
         }
         
-        /* 可以在这里进一步调整标题样式（如果需要） */
-        .section-title {
-            /* 已经通过内联样式设置了居中，这里可以添加其他样式 */
-            margin-top: 40px;
-            color: #2c3e50; /* 标题颜色 */
+        #player-container-id {
+            width: 100%;
+            height: 675px; /* 保持与封面图比例一致 */
         }
     </style>
-
-    <!-- 使用与你要求相同大小的标题 -->
-    <h1 class="section-title" style="text-align: center; font-size: 28px; font-weight: bold;">泰州姜堰项目展示区规划</h1>
+</head>
+<body>
+    <!-- 标题区域 -->
+    <h1 class="section-title">泰州姜堰项目展示区规划</h1>
 
     <!-- 视频播放区域 -->
-    <video controls poster="https://picsum.photos/1200/675?grayscale">
-        <source src="https://github.com/Amadeus-y/Amadeus-y.github.io/raw/main/1.mp4" type="video/mp4">
+    <div class="video-container">
+        <video 
+            id="player-container-id" 
+            preload="auto" 
+            playsinline 
+            webkit-playsinline
+            poster="https://picsum.photos/1200/675?grayscale"
+        ></video>
+    </div>
 
- 
-        您的浏览器不支持视频播放，请升级浏览器。
-    </video>
-
-        <style>
-        /* 视频样式 */
-        video {
-            width: 80%;
-            max-width: 1200px;
-            display: block;
-            margin: 30px auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
+    <script>
+        // 初始化腾讯云TCPlayer播放器
+        var tcplayer = TCPlayer("player-container-id", {
+            reportable: false,
+            autoplay: false, // 不自动播放
+            controls: true,  // 显示控制栏
+            preload: "auto"  // 自动预加载
+        });
         
-        /* 可以在这里进一步调整标题样式（如果需要） */
-        .section-title {
-            /* 已经通过内联样式设置了居中，这里可以添加其他样式 */
-            margin-top: 40px;
-            color: #2c3e50; /* 标题颜色 */
-        }
-    </style>
+        // 设置视频源（使用腾讯云提供的带签名URL）
+        tcplayer.src('https://jindi-1380827153.cos.ap-shanghai.myqcloud.com/1.mp4?q-sign-algorithm=sha1&q-ak=AKIDNrnu92UVPyT9xVYA1ioZy2oYv_ez8nc59fpiZLw5BzpWMvofVK2FPdf87wgmP2Zy&q-sign-time=1760594224;1760597824&q-key-time=1760594224;1760597824&q-header-list=host&q-url-param-list=&q-signature=7d02847be0d6e4be59c4caae7f72cd8e20f2391c&x-cos-security-token=DaagdknQZWM3nUJp323W9yLeNb6TvXrac44171d01a7d16dd559ea677e9d5f50fHoSLNFv7laiFSeSp2m9WiP2opOnzadTLcwWT3MvgGVnTWyW79EF6KRMa8z-8Dd7ZODWTsLwpXFu7OG3k7vtFDcTpnI6oxlvvROJDpkeEObzcJFAmfokqDYa47pvVEvWUIOze4pfRo5LDN6ZOoVevPG3HG4mrkY8pZX6DCT1uWAv9M3X2xx_FtbtWll1TBP61UX57IUwxeNGgQMGZQQdWR4zuNfJ4UZMOpPmXW8TwsVAUL4l5DUNya9mLg0XjboiiVEId5t6Zk6DhB-YOhaOovg&');
+    </script>
+</body>
+</html>
 
         <section id="开发能力" class="py-20">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8">开发能力</h2>
