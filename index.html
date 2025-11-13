@@ -373,7 +373,7 @@
                     <a href="#overview" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">企业概览</a>
                     <a href="#business" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">业务结构</a>
                     <a href="#performance" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">经营实力</a>
-                    <a href="#shanghai" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">上海布局</a>
+                    <a href="#quanguo" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">全国布局</a>
                     <a href="#销售表现" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">销售表现</a>
                     <a href="#投资表现" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">投资表现</a>
                     <a href="#投资能力" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">投资能力</a>
@@ -443,7 +443,7 @@
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">企业概览</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto">34年稳健发展，平衡成就行业标杆</p>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">30余年稳健发展，平衡成就行业标杆</p>
             </div>
             
             <div class="grid md:grid-cols-2 gap-12 items-center mb-16">
@@ -638,15 +638,275 @@
             </div>
         </div>
     </section>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>金地上海地区公司 - 区域布局</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  
+  <!-- 配置Tailwind自定义颜色和字体 -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#FF7A00',       // 主橙色
+            primaryLight: '#FFE0CC',  // 浅橙色（非激活状态）
+            neutral: '#F5F5F5',
+            dark: '#333333'
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      }
+    }
+  </script>
+  
+  <style type="text/tailwindcss">
+    @layer utilities {
+      .content-auto {
+        content-visibility: auto;
+      }
+      .sidebar-active {
+        @apply bg-primary text-white border-l-4 border-primary;
+      }
+      .text-fade {
+        animation: fadeIn 0.5s ease-in-out;
+      }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-gray-50 font-sans text-dark">
+  <div class="container mx-auto px-4 py-12 max-w-6xl">
+    <!-- 标题区域 -->
+    <div class="text-center mb-10">
+      <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold text-dark mb-3">金地上海地区公司</h1>
+      <p class="text-gray-600 text-lg">深耕长三角的不动产价值共创企业</p>
+    </div>
+    
+    <!-- 主内容区 -->
+    <div class="flex flex-col lg:flex-row gap-8 bg-white rounded-xl shadow-sm p-6 md:p-8">
+      <!-- 侧边栏 -->
+      <div class="lg:w-1/6">
+        <div class="flex flex-col space-y-1">
+          <!-- 上海按钮 -->
+          <button id="btn-sh" class="sidebar-item flex items-center py-4 px-5 text-left rounded hover:bg-primary/5 transition-all duration-300">
+            <span class="w-8 h-8 rounded-full bg-primaryLight text-primary flex items-center justify-center mr-3 font-bold">沪</span>
+            <span>上海</span>
+          </button>
+          <!-- 苏州按钮（默认激活） -->
+          <button id="btn-sz" class="sidebar-item flex items-center py-4 px-5 text-left rounded sidebar-active transition-all duration-300">
+            <span class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center mr-3 font-bold">苏</span>
+            <span>苏州</span>
+          </button>
+          <!-- 苏中按钮 -->
+          <button id="btn-sz-mid" class="sidebar-item flex items-center py-4 px-5 text-left rounded hover:bg-primary/5 transition-all duration-300">
+            <span class="w-8 h-8 rounded-full bg-primaryLight text-primary flex items-center justify-center mr-3 font-bold">中</span>
+            <span>苏中</span>
+          </button>
+        </div>
+      </div>
+      
+      <!-- 文字内容区（上移调整：去掉垂直居中，改为顶部对齐） -->
+      <div class="lg:w-2/6">
+        <div class="text-content pt-2"> <!-- 增加顶部内边距微调位置 -->
+          <!-- 上海内容 -->
+          <div id="content-sh" class="hidden text-fade">
+            <h3 class="text-xl font-semibold mb-4 text-primary">上海</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              发挥城市深耕和资源聚集优势，聚焦全品类大资管业务，构建完整的不动产价值共创服务体系。
+            </p>
+          </div>
+          
+          <!-- 苏州内容 (默认显示) -->
+          <div id="content-sz" class="text-fade">
+            <h3 class="text-xl font-semibold mb-4 text-primary">苏州</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              承接上海资源并结合城市特点，采取轻重并举的发展策略，侧重轻资产服务。
+            </p>
+          </div>
+          
+          <!-- 苏中内容 -->
+          <div id="content-sz-mid" class="hidden text-fade">
+            <h3 class="text-xl font-semibold mb-4 text-primary">苏中</h3>
+            <p class="text-lg text-gray-700 leading-relaxed">
+              下辖南通、盐城、泰州等城市，在轻资产服务领域布局较早，依托先发优势和深厚的本地化运营经验，为区域市场提供专业化的不动产管理解决方案。
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- 地图图片区域 -->
+      <div class="lg:w-3/6">
+        <div class="bg-neutral rounded-lg p-4 h-full flex items-center justify-center">
+          <h3 class="text-center text-gray-500 mb-3">区域布局地图</h3>
+          <img src="https://p11-flow-imagex-download-sign.byteimg.com/tos-cn-i-a9rns2rl98/8511c47347eb47b99065cfd0fa19f22c.png~tplv-a9rns2rl98-24-95-exif:960:960.png?rcl=202511131458150E5AA8044D8DB97A4816&rk3s=8e244e95&rrcfp=8a172a1a&x-expires=1763621896&x-signature=B2PdkY2CQNHVit1Hq%2Bqp25VLVUM%3D" 
+               alt="区域布局地图" 
+               class="w-full h-auto rounded shadow-sm hover:shadow-md transition-shadow duration-300">
+        </div>
+      </div>
+    </div>
+  </div>
 
-    <!-- 上海布局 -->
-    <section id="shanghai" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">上海布局</h2>
-                <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">深耕上海20年，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目，积累了大量的客户资源，经营优势显著</p>
-                <img src="94.png">
-            </div>
+  <script>
+    // 获取DOM元素
+    const btnSh = document.getElementById('btn-sh');
+    const btnSz = document.getElementById('btn-sz');
+    const btnSzMid = document.getElementById('btn-sz-mid');
+    const contentSh = document.getElementById('content-sh');
+    const contentSz = document.getElementById('content-sz');
+    const contentSzMid = document.getElementById('content-sz-mid');
+    const sidebarItems = document.querySelectorAll('.sidebar-item');
+    
+    // 重置所有内容和侧边栏样式
+    function resetAll() {
+      // 隐藏所有内容
+      contentSh.classList.add('hidden');
+      contentSz.classList.add('hidden');
+      contentSzMid.classList.add('hidden');
+      
+      // 重置所有侧边栏按钮样式
+      sidebarItems.forEach(item => {
+        item.classList.remove('sidebar-active');
+        const span = item.querySelector('span:first-child');
+        span.classList.remove('bg-primary', 'text-white');
+        span.classList.add('bg-primaryLight', 'text-primary'); // 统一非激活状态为浅橙色背景+橙色文字
+      });
+    }
+    
+    // 上海按钮点击事件
+    btnSh.addEventListener('click', () => {
+      resetAll();
+      contentSh.classList.remove('hidden');
+      btnSh.classList.add('sidebar-active');
+      const span = btnSh.querySelector('span:first-child');
+      span.classList.remove('bg-primaryLight', 'text-primary');
+      span.classList.add('bg-primary', 'text-white');
+    });
+    
+    // 苏州按钮点击事件
+    btnSz.addEventListener('click', () => {
+      resetAll();
+      contentSz.classList.remove('hidden');
+      btnSz.classList.add('sidebar-active');
+      const span = btnSz.querySelector('span:first-child');
+      span.classList.remove('bg-primaryLight', 'text-primary');
+      span.classList.add('bg-primary', 'text-white');
+    });
+    
+    // 苏中按钮点击事件
+    btnSzMid.addEventListener('click', () => {
+      resetAll();
+      contentSzMid.classList.remove('hidden');
+      btnSzMid.classList.add('sidebar-active');
+      const span = btnSzMid.querySelector('span:first-child');
+      span.classList.remove('bg-primaryLight', 'text-primary');
+      span.classList.add('bg-primary', 'text-white');
+    });
+  </script>
+</body>
+</html>
+    <!-- 全国布局 -->
+<section id="quanguo" class="py-20 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">全国布局</h2>
+      <!-- 动态描述文字区域 -->
+      <p id="jdNationwideDesc" class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+        2015年首次进入苏州，持续开发了41个项目，深耕苏州市区、昆山市
+      </p>
+      <!-- 轮播图容器：放大尺寸 + 响应式适配 -->
+      <div class="relative w-full max-w-7xl mx-auto h-[600px] md:h-[700px] overflow-hidden rounded-lg shadow-xl">
+        <!-- 轮播图片区域：图片满铺容器 -->
+        <div id="jdNationwideCarousel" class="flex transition-transform duration-500 ease-in-out h-full">
+          <!-- 苏州布局 -->
+          <div class="min-w-full h-full">
+            <img src="94.png" alt="苏州布局" class="w-full h-full object-cover">
+          </div>
+          <!-- 上海布局（需替换为实际图片） -->
+          <div class="min-w-full h-full">
+            <img src="200.png" alt="上海布局" class="w-full h-full object-cover">
+          </div>
+          <!-- 苏中布局（需替换为实际图片） -->
+          <div class="min-w-full h-full">
+            <img src="201.png" alt="苏中布局" class="w-full h-full object-cover">
+          </div>
+        </div>
+        <!-- 轮播控制按钮 -->
+        <button id="jdNationwidePrev" class="absolute left-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+          <i class="fa fa-chevron-left text-gray-800 text-xl"></i>
+        </button>
+        <button id="jdNationwideNext" class="absolute right-6 top-1/2 -translate-y-1/2 w-12 h-12 bg-white/80 rounded-full flex items-center justify-center shadow-lg hover:bg-white transition-colors">
+          <i class="fa fa-chevron-right text-gray-800 text-xl"></i>
+        </button>
+        <!-- 轮播指示器 -->
+        <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex space-x-3">
+          <button data-index="0" class="jdNationwideIndicator w-4 h-4 rounded-full bg-white/60 hover:bg-white transition-colors"></button>
+          <button data-index="1" class="jdNationwideIndicator w-4 h-4 rounded-full bg-white/60 hover:bg-white transition-colors"></button>
+          <button data-index="2" class="jdNationwideIndicator w-4 h-4 rounded-full bg-white/60 hover:bg-white transition-colors"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // 独立命名空间变量，避免与其他轮播冲突
+  const jdNationwide = {
+    carousel: document.getElementById('jdNationwideCarousel'),
+    desc: document.getElementById('jdNationwideDesc'),
+    prevBtn: document.getElementById('jdNationwidePrev'),
+    nextBtn: document.getElementById('jdNationwideNext'),
+    indicators: document.querySelectorAll('.jdNationwideIndicator'),
+    currentIndex: 0,
+    // 各区域描述文字
+    descriptions: [
+      "2015年首次进入苏州，持续开发了41个项目，深耕苏州市区、昆山市",
+      "2002年首次进入上海，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目",
+      "2018年首次进入苏中，持续开发了14个项目，轻资产项目市占率第一"
+    ],
+    // 切换轮播
+    goToIndex: function(index) {
+      this.currentIndex = index;
+      this.carousel.style.transform = `translateX(-${index * 100}%)`;
+      this.desc.textContent = this.descriptions[index];
+      // 更新指示器
+      this.indicators.forEach((indicator, i) => {
+        indicator.classList.toggle('bg-white', i === index);
+        indicator.classList.toggle('bg-white/60', i !== index);
+      });
+    },
+    // 下一张
+    next: function() {
+      const nextIndex = (this.currentIndex + 1) % this.descriptions.length;
+      this.goToIndex(nextIndex);
+    },
+    // 上一张
+    prev: function() {
+      const prevIndex = (this.currentIndex - 1 + this.descriptions.length) % this.descriptions.length;
+      this.goToIndex(prevIndex);
+    }
+  };
+
+  // 绑定事件
+  jdNationwide.prevBtn.addEventListener('click', () => jdNationwide.prev());
+  jdNationwide.nextBtn.addEventListener('click', () => jdNationwide.next());
+  jdNationwide.indicators.forEach((indicator, index) => {
+    indicator.addEventListener('click', () => jdNationwide.goToIndex(index));
+  });
+
+  // 自动轮播（可选，如需关闭可删除此段）
+
+</script>
              
             
 
@@ -1623,13 +1883,7 @@
             "212.jpg"
 
 
-
-
-
-
-
-
-            
+        
         ]);
         
        
