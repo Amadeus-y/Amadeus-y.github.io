@@ -870,9 +870,9 @@
     currentIndex: 0,
     // 各区域描述文字
     descriptions: [
-      "2015年首次进入苏州，持续开发了41个项目，深耕苏州市区、昆山市",
-      "2002年首次进入上海，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目",
-      "2018年首次进入苏中，持续开发了14个项目，轻资产项目市占率第一"
+        "2002年首次进入上海，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目",
+        "2015年首次进入苏州，持续开发了41个项目，深耕苏州市区、昆山市",
+        "2018年首次进入苏中，持续开发了14个项目，轻资产项目市占率第一"
     ],
     // 切换轮播
     goToIndex: function(index) {
@@ -1250,7 +1250,7 @@
         </div>
         <div class="border-2 border-dashed border-red-300 p-1 overflow-hidden">
           <img src="214.png" alt="广厦奖奖杯" class="w-full h-40 object-cover">
-          <p class="text-sm text-center mt-2">广厦奖奖杯</p>
+          <p class="text-sm text-center mt-2">克尔瑞十大品质作品奖杯</p>
         </div>
                 <div class="border-2 border-dashed border-red-300 p-1 overflow-hidden">
           <img src="215.png" alt="广厦奖奖杯" class="w-full h-40 object-cover">
@@ -2204,212 +2204,7 @@ new Carousel("#projectCarousel", [
 </body>
 </html>
             
-<div class="mb-16">
-    <div class="main-wrapper">
-        <!-- 左侧轮播图部分 -->
-        <div class="image-slider-wrapper">
-            <div class="image-display">
-                
-                <div class="jingan-carousel-slide">
-                                <img src="228.png" alt="静安项目图片1">
-                </div>
 
-                
-            </div>
-            <button class="slide-control control-back" id="backBtn">&lt;</button>
-            <button class="slide-control control-forward" id="forwardBtn">&gt;</button>
-        </div>
-
-        <!-- 右侧文本块（含橙色标题+底色） -->
-        <div class="description-section">
-            <h3 class="text-2xl font-bold mb-6 orange-title">泰兴广源公司纾困项目（AMC+代建项目）</h3>
-            <p class="project-subtitle">姜堰首创地势整体抬升6米的宋式低密墅区</p>
-            <div class="project-details">
-        <p><strong>用地面积：</strong>9.1万㎡</p>
-        <p><strong>容积率：</strong>2.7</p>
-        <p><strong>产品类型：</strong>高层</p>
-        <p><strong>获取时间：</strong>2025年11月</p>
-      </div>
-      
-      <div class="project-highlights">
-        <p>委托方为江苏世代地产，以“整体抬高6米+全明地库”革新地下空间设计，结合下沉庭院与采光井实现自然通风采光。立体庭院通过下沉式景观、架空层泛会所与屋顶花园形成立体生态，打造姜堰核心区改善型标杆。</p>
-        
-        
-      </div>
-        </div>
-    </div>
-</div>
-
-<style>
-    /* 主容器 - 左右并列，高度对齐 */
-    .main-wrapper {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem; /* 两侧间距 */
-        padding: 0 1rem;
-        max-width: 1400px;
-        margin: 0 auto;
-        align-items: stretch; /* 强制两侧高度一致 */
-    }
-
-    /* 左侧轮播图容器 - 占比50% */
-    .image-slider-wrapper {
-        flex: 1;
-        min-width: 300px;
-        position: relative;
-        margin-top: 0; /* 移除负margin，修复对齐 */
-    }
-
-    /* 轮播图显示区域 - 固定高度，与右侧文本块匹配 */
-    .image-display {
-        width: 100%;
-        height: 450px; /* 与右侧文本块高度协调 */
-        overflow: hidden;
-        border-radius: 8px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .image-track {
-        display: flex;
-        width: 100%;
-        height: 100%;
-        transition: transform 0.5s ease-in-out;
-    }
-
-    .slide-item {
-        width: 100%;
-        height: 100%;
-        flex-shrink: 0;
-    }
-
-    .slide-item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* 图片填满容器，避免留白 */
-    }
-
-    /* 轮播按钮优化 */
-    .slide-control {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 40px;
-        height: 40px;
-        background-color: rgba(255,255,255,0.8);
-        color: #333;
-        border: none;
-        border-radius: 50%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 10;
-        transition: all 0.3s;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
-
-    .slide-control:hover {
-        background-color: white;
-    }
-
-    .control-back {
-        left: 10px;
-    }
-
-    .control-forward {
-        right: 10px;
-    }
-
-    /* 右侧文本块 - 带底色，标题橙色 */
-    .description-section {
-        flex: 1;
-        min-width: 300px;
-        background: #f5f5f5; /* 浅灰色底色 */
-        padding: 2.5rem; /* 充足内边距，避免文字拥挤 */
-        border-radius: 8px; /* 圆角与轮播图呼应 */
-        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-
-    /* 橙色标题样式 */
-    .orange-title {
-        color: #FF7A00; /* 橙色标题 */
-        line-height: 1.3; /* 优化行高 */
-    }
-
-    /* 正文文字样式 */
-    .description-section p {
-        font-size: 16px;
-        line-height: 1.8;
-        color: #333;
-        margin-bottom: 1.2rem;
-    }
-
-    /* 响应式适配 - 小屏幕堆叠 */
-    @media (max-width: 768px) {
-        .main-wrapper {
-            flex-direction: column;
-            gap: 1.5rem;
-        }
-        
-        .image-display, .description-section {
-            height: auto; /* 小屏幕自适应高度 */
-        }
-        
-        .image-display {
-            min-height: 300px;
-        }
-        
-        .description-section {
-            padding: 1.5rem;
-        }
-        
-        .orange-title {
-            font-size: 1.5rem; /* 小屏幕标题缩小 */
-        }
-    }
-</style>
-
-<script>
-    // 轮播功能保持完整，变量命名独立
-    const imageTrack = document.getElementById('imageTrack');
-    const backBtn = document.getElementById('backBtn');
-    const forwardBtn = document.getElementById('forwardBtn');
-    const totalImages = 3;
-    let activeIndex = 0;
-    let autoRotateTimer;
-
-    function setActiveSlide(position) {
-        if (position < 0) position = totalImages - 1;
-        if (position >= totalImages) position = 0;
-        activeIndex = position;
-        const translateValue = -activeIndex * 100;
-        imageTrack.style.transform = `translateX(${translateValue}%)`;
-    }
-
-    function showNextImage() {
-        setActiveSlide(activeIndex + 1);
-    }
-
-    function showPrevImage() {
-        setActiveSlide(activeIndex - 1);
-    }
-
-    function initiateAutoRotate() {
-        autoRotateTimer = setInterval(showNextImage, 4000);
-    }
-
-    backBtn.addEventListener('click', showPrevImage);
-    forwardBtn.addEventListener('click', showNextImage);
-
-    const sliderWrapper = document.querySelector('.image-slider-wrapper');
-    sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoRotateTimer));
-    sliderWrapper.addEventListener('mouseleave', initiateAutoRotate);
-
-    document.addEventListener('DOMContentLoaded', () => {
-        setActiveSlide(0);
-        initiateAutoRotate();
-    });
-</script>
 
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -3262,295 +3057,6 @@ new Carousel("#projectCarousel", [
 </body>
 </html>
 
-           <!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>产业园</title>
-    <style>
-        /* 整体容器样式 */
-        .mb-16 {
-            margin-bottom: 4rem;
-            padding: 20px;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* 内容布局容器 - 左右对齐且高度一致 */
-        .content-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem; /* 两侧间距 */
-            align-items: stretch; /* 强制左右高度一致 */
-        }
-
-        /* 右侧文本块样式（带底色+橙色标题） */
-        .text-section {
-            flex: 1;
-            min-width: 300px;
-            background: #f5f5f5; /* 浅灰色底色方块 */
-            padding: 2.5rem; /* 内边距，避免文字贴边 */
-            border-radius: 8px; /* 圆角与轮播图呼应 */
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 轻微阴影 */
-        }
-
-        /* 橙色标题样式 */
-        .text-section .orange-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #FF7500; /* 橙色标题 */
-            margin-bottom: 1.5rem; /* 与正文间距 */
-            line-height: 1.3;
-        }
-
-        .text-section p {
-            font-size: 16px;
-            line-height: 1.8;
-            color: #333; /* 深灰色文字，提升可读性 */
-            margin-bottom: 1.2rem;
-        }
-
-        /* 左侧轮播图容器样式 - 统一布局 */
-        .carousel-section {
-            flex: 1;
-            min-width: 300px;
-            /* 移除固定最大宽度，保持与文本块均衡分布 */
-        }
-
-        .industry-carousel-wrapper {
-            width: 100%;
-            position: relative;
-            height: 100%; /* 继承父容器高度，确保与右侧对齐 */
-        }
-
-        .industry-carousel-display {
-            width: 100%;
-            height: 400px; /* 调整高度，与右侧文本块匹配 */
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .industry-carousel-track {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.6s ease-in-out;
-        }
-
-        .industry-carousel-slide {
-            width: 100%;
-            height: 100%;
-            flex-shrink: 0;
-        }
-
-        .industry-carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* 图片填满容器，避免留白变形 */
-        }
-
-        /* 控制按钮样式优化 - 统一风格 */
-        .industry-carousel-control {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 44px;
-            height: 44px;
-            background-color: rgba(255,255,255,0.8); /* 白色半透按钮 */
-            color: #333; /* 深色图标 */
-            border: none;
-            border-radius: 50%;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            z-index: 20;
-            transition: all 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .industry-carousel-control:hover {
-            background-color: white; /* hover时变白 */
-        }
-
-        .industry-control-prev {
-            left: 15px;
-        }
-
-        .industry-control-next {
-            right: 15px;
-        }
-
-        /* 指示器样式 */
-        .industry-carousel-indicators {
-            position: absolute;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 20;
-        }
-
-        .industry-indicator-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.5);
-            cursor: pointer;
-            transition: background-color 0.3s ease, width 0.3s ease;
-        }
-
-        .industry-indicator-dot.active {
-            background-color: #fff;
-            width: 30px;
-            border-radius: 5px;
-        }
-
-        /* 响应式调整 - 保持统一适配逻辑 */
-        @media (max-width: 768px) {
-            .content-wrapper {
-                flex-direction: column; /* 小屏幕上下布局 */
-                gap: 1.5rem;
-            }
-            
-            .industry-carousel-display {
-                height: 300px; /* 小屏幕轮播高度减小 */
-            }
-            
-            .text-section {
-                padding: 1.5rem; /* 小屏幕内边距减小 */
-            }
-            
-            .orange-title {
-                font-size: 1.3rem !important; /* 小屏幕标题缩小 */
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="mb-16">
-        <div class="content-wrapper">
-            <!-- 左侧轮播图部分 -->
-            <div class="carousel-section">
-                <div class="industry-carousel-wrapper">
-                    <div class="industry-carousel-display">
-                        <div class="industry-carousel-track" id="industryCarouselTrack">
-                            <div class="industry-carousel-slide">
-                                <img src="232.jpg" alt="产业园图片1">
-                            </div>
-                            <div class="industry-carousel-slide">
-                                <img src="233.jpg" alt="产业园图片2">
-                            </div>
-                            <div class="industry-carousel-slide">
-                                <img src="234.jpg" alt="产业园图片3">
-                            </div>
-                            <div class="industry-carousel-slide">
-                                <img src="234.jpg" alt="产业园图片3">
-                            </div>
-                            <div class="industry-carousel-slide">
-                                <img src="235.jpg" alt="产业园图片3">
-                            </div>
-                            <div class="industry-carousel-slide">
-                                <img src="236.png" alt="产业园图片3">
-                            </div>
-
-                        </div>
-                    </div>
-                    
-                    <!-- 控制按钮 -->
-                    <button class="industry-carousel-control industry-control-prev" id="industryControlPrev">&lt;</button>
-                    <button class="industry-carousel-control industry-control-next" id="industryControlNext">&gt;</button>
-                    
-                    <!-- 指示器 -->
-                    <div class="industry-carousel-indicators" id="industryCarouselIndicators">
-                        <!-- 动态生成指示器 -->
-                    </div>
-                </div>
-            </div>
-
-            <!-- 右侧文本块（含橙色标题+底色） -->
-            <div class="text-section">
-                <h3 class="orange-title">上海·静安8号高端养老公寓（代建项目）</h3>
-                <p class="project-subtitle">中国平安旗下首个旗舰级城芯康养社区</p>
-
-      
-      <div class="project-highlights">
-        <p>位于静安区常熟路8号，紧邻静安寺商圈，步行可达兴业太古汇、芮欧百货等商业地标，3公里内覆盖10余家三甲医院，形成“15分钟养老生活圈”。设置自理、护理、记忆照护公寓共400余套，配套康复医院、日间照料中心及六大社交主题空间。基于“七维健康”理念，提供整合式医疗照护、定制化健康管理及颐年俱乐部活动</p>
-        
-        
-      </div>
-            </div>
-        </div>
-    </div>
-
-    <script>
-        // 轮播图功能保持完整
-        const industryCarouselTrack = document.getElementById('industryCarouselTrack');
-        const industryControlPrev = document.getElementById('industryControlPrev');
-        const industryControlNext = document.getElementById('industryControlNext');
-        const industryIndicatorsContainer = document.getElementById('industryCarouselIndicators');
-        const industryTotalSlides = industryCarouselTrack.querySelectorAll('.industry-carousel-slide').length;
-        let industryCurrentSlide = 0;
-        let industryCarouselTimer;
-
-        function generateIndustryIndicators() {
-            industryIndicatorsContainer.innerHTML = '';
-            for (let i = 0; i < industryTotalSlides; i++) {
-                const dot = document.createElement('div');
-                dot.className = `industry-indicator-dot ${i === 0 ? 'active' : ''}`;
-                dot.setAttribute('data-index', i);
-                dot.addEventListener('click', () => {
-                    industryCurrentSlide = i;
-                    updateIndustryCarousel();
-                });
-                industryIndicatorsContainer.appendChild(dot);
-            }
-        }
-
-        function updateIndustryCarousel() {
-            const scrollValue = -industryCurrentSlide * 100;
-            industryCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
-            
-            const dots = industryIndicatorsContainer.querySelectorAll('.industry-indicator-dot');
-            dots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === industryCurrentSlide);
-            });
-        }
-
-        function industryNextSlide() {
-            industryCurrentSlide = (industryCurrentSlide + 1) % industryTotalSlides;
-            updateIndustryCarousel();
-        }
-
-        function industryPrevSlide() {
-            industryCurrentSlide = (industryCurrentSlide - 1 + industryTotalSlides) % industryTotalSlides;
-            updateIndustryCarousel();
-        }
-
-        function startIndustryCarousel() {
-            industryCarouselTimer = setInterval(industryNextSlide, 5000);
-        }
-
-        industryControlPrev.addEventListener('click', industryPrevSlide);
-        industryControlNext.addEventListener('click', industryNextSlide);
-
-        const industryCarouselWrapper = document.querySelector('.industry-carousel-wrapper');
-        industryCarouselWrapper.addEventListener('mouseenter', () => clearInterval(industryCarouselTimer));
-        industryCarouselWrapper.addEventListener('mouseleave', startIndustryCarousel);
-
-        document.addEventListener('DOMContentLoaded', () => {
-            generateIndustryIndicators();
-            updateIndustryCarousel();
-            startIndustryCarousel();
-        });
-    </script>
-</body>
-</html>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -3839,65 +3345,6 @@ new Carousel("#projectCarousel", [
 </body>
 </html>
 
-  
-  <!-- 核心布局：左侧单图 + 右侧两段文字 -->
-  <div class="project-showcase">
-    <!-- 左侧单张图片 -->
-    <div class="image-container">
-      <!-- 替换为你的图片路径 -->
-      <img src="228.png" 
-           alt="上海·萃屿原墅项目图">
-    </div>
-    
-    <!-- 右侧两段文字 -->
-    <div class="project-info">
-      <h3 class="project-title">东方资产</h3>
-      
-      <p class="project-text">
-        成立于1999年，是经国务院批准，由财政部、全国社保基金理事会共同发起设立的中央金融企业，是中国四大国有金融资产管理公司之一，累计支持国央企资产盘活近 500 亿元。
-
-      </p>
-      <p class="project-text">
-        合作经历：
-      </p>
-      
-      <p class="project-text">
-        泰兴广源公司纾困项目（AMC+代建）该项目是泰兴市重点的房地产纾困项目，项目公司由泰兴法院接管并指定管理人。为推动项目资产盘活，金地携手战略合作伙伴东方资产共同参与：东方资产负责投资盘活，金地负责项目经营及品质提升。通过“AMC+代建”模式为泰兴市政府纾困解难,有效化解房地产项目风险。
-
-      </p>
-    </div>
-  </div>
-
-
-  
-  <!-- 核心布局：左侧单图 + 右侧两段文字 -->
-  <div class="project-showcase">
-    <!-- 左侧单张图片 -->
-    <div class="image-container">
-      <!-- 替换为你的图片路径 -->
-      <img src="236.png" 
-           alt="上海·萃屿原墅项目图">
-    </div>
-    
-    <!-- 右侧两段文字 -->
-    <div class="project-info">
-      <h3 class="project-title">平安集团</h3>
-      
-      <p class="project-text">
-        成立于1988年，国内金融牌照最齐全、业务范围最广泛的综合金融 + 医疗养老服务集团。2021 年 5 月正式发布高品质康养品牌——平安臻颐年，目前已在5 个城市布局 6 个高端项目。
-
-      </p>
-      <p class="project-text">
-        合作经历：
-
-      </p>
-      
-      <p class="project-text">
-        上海·静安8号高端养老公寓（代建项目）项目位于静安区常熟路8号，紧邻静安寺商圈，设置自理、护理、记忆照护公寓共400余套，配套康复医院、日间照料中心及六大社交主题空间。平安集团作为投资方和运营方，金地作为全过程开发管理方，共同探索高端养老服务新模式。
-
-      </p>
-    </div>
-  </div>
 
     <div class="card-header">
         <div class="flex flex-col items-center justify-between px-6">
@@ -4163,6 +3610,498 @@ new Carousel("#projectCarousel", [
   }
 </style>
 
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产业园</title>
+    <style>
+        /* 整体容器样式 */
+        .mb-16 {
+            margin-bottom: 4rem;
+            padding: 20px;
+            max-width: 1400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* 内容布局容器 - 左右对齐且高度一致 */
+        .content-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem; /* 两侧间距 */
+            align-items: stretch; /* 强制左右高度一致 */
+        }
+
+        /* 右侧文本块样式（带底色+橙色标题） */
+        .text-section {
+            flex: 1;
+            min-width: 300px;
+            background: #f5f5f5; /* 浅灰色底色方块 */
+            padding: 2.5rem; /* 内边距，避免文字贴边 */
+            border-radius: 8px; /* 圆角与轮播图呼应 */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05); /* 轻微阴影 */
+        }
+
+        /* 橙色标题样式 */
+        .text-section .orange-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #FF7500; /* 橙色标题 */
+            margin-bottom: 1.5rem; /* 与正文间距 */
+            line-height: 1.3;
+        }
+
+        .text-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #333; /* 深灰色文字，提升可读性 */
+            margin-bottom: 1.2rem;
+        }
+
+        /* 左侧轮播图容器样式 - 统一布局 */
+        .carousel-section {
+            flex: 1;
+            min-width: 300px;
+            /* 移除固定最大宽度，保持与文本块均衡分布 */
+        }
+
+        .industry-carousel-wrapper {
+            width: 100%;
+            position: relative;
+            height: 100%; /* 继承父容器高度，确保与右侧对齐 */
+        }
+
+        .industry-carousel-display {
+            width: 100%;
+            height: 400px; /* 调整高度，与右侧文本块匹配 */
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .industry-carousel-track {
+            display: flex;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease-in-out;
+        }
+
+        .industry-carousel-slide {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .industry-carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 图片填满容器，避免留白变形 */
+        }
+
+        /* 控制按钮样式优化 - 统一风格 */
+        .industry-carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background-color: rgba(255,255,255,0.8); /* 白色半透按钮 */
+            color: #333; /* 深色图标 */
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            z-index: 20;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .industry-carousel-control:hover {
+            background-color: white; /* hover时变白 */
+        }
+
+        .industry-control-prev {
+            left: 15px;
+        }
+
+        .industry-control-next {
+            right: 15px;
+        }
+
+        /* 指示器样式 */
+        .industry-carousel-indicators {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+            z-index: 20;
+        }
+
+        .industry-indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background-color 0.3s ease, width 0.3s ease;
+        }
+
+        .industry-indicator-dot.active {
+            background-color: #fff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        /* 响应式调整 - 保持统一适配逻辑 */
+        @media (max-width: 768px) {
+            .content-wrapper {
+                flex-direction: column; /* 小屏幕上下布局 */
+                gap: 1.5rem;
+            }
+            
+            .industry-carousel-display {
+                height: 300px; /* 小屏幕轮播高度减小 */
+            }
+            
+            .text-section {
+                padding: 1.5rem; /* 小屏幕内边距减小 */
+            }
+            
+            .orange-title {
+                font-size: 1.3rem !important; /* 小屏幕标题缩小 */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="mb-16">
+        <div class="content-wrapper">
+            <!-- 左侧轮播图部分 -->
+            <div class="carousel-section">
+                <div class="industry-carousel-wrapper">
+                    <div class="industry-carousel-display">
+                        <div class="industry-carousel-track" id="industryCarouselTrack">
+                            <div class="industry-carousel-slide">
+                                <img src="232.jpg" alt="产业园图片1">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="233.jpg" alt="产业园图片2">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="234.jpg" alt="产业园图片3">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="234.jpg" alt="产业园图片3">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="235.jpg" alt="产业园图片3">
+                            </div>
+                            <div class="industry-carousel-slide">
+                                <img src="236.png" alt="产业园图片3">
+                            </div>
+
+                        </div>
+                    </div>
+                    
+                    <!-- 控制按钮 -->
+                    <button class="industry-carousel-control industry-control-prev" id="industryControlPrev">&lt;</button>
+                    <button class="industry-carousel-control industry-control-next" id="industryControlNext">&gt;</button>
+                    
+                    <!-- 指示器 -->
+                    <div class="industry-carousel-indicators" id="industryCarouselIndicators">
+                        <!-- 动态生成指示器 -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧文本块（含橙色标题+底色） -->
+            <div class="text-section">
+                <h3 class="orange-title">平安集团</h3>
+                
+
+      
+      <div class="project-highlights">
+        <p>成立于1988年，国内金融牌照最齐全、业务范围最广泛的综合金融 + 医疗养老服务集团。2021 年 5 月正式发布高品质康养品牌——平安臻颐年，目前已在5 个城市布局 6 个高端项目。</p>
+        <p>合作经历：</p>
+        <p>上海·静安8号高端养老公寓（代建项目）项目位于静安区常熟路8号，紧邻静安寺商圈，设置自理、护理、记忆照护公寓共400余套，配套康复医院、日间照料中心及六大社交主题空间。平安集团作为投资方和运营方，金地作为全过程开发管理方，共同探索高端养老服务新模式。 </p>
+      </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 轮播图功能保持完整
+        const industryCarouselTrack = document.getElementById('industryCarouselTrack');
+        const industryControlPrev = document.getElementById('industryControlPrev');
+        const industryControlNext = document.getElementById('industryControlNext');
+        const industryIndicatorsContainer = document.getElementById('industryCarouselIndicators');
+        const industryTotalSlides = industryCarouselTrack.querySelectorAll('.industry-carousel-slide').length;
+        let industryCurrentSlide = 0;
+        let industryCarouselTimer;
+
+        function generateIndustryIndicators() {
+            industryIndicatorsContainer.innerHTML = '';
+            for (let i = 0; i < industryTotalSlides; i++) {
+                const dot = document.createElement('div');
+                dot.className = `industry-indicator-dot ${i === 0 ? 'active' : ''}`;
+                dot.setAttribute('data-index', i);
+                dot.addEventListener('click', () => {
+                    industryCurrentSlide = i;
+                    updateIndustryCarousel();
+                });
+                industryIndicatorsContainer.appendChild(dot);
+            }
+        }
+
+        function updateIndustryCarousel() {
+            const scrollValue = -industryCurrentSlide * 100;
+            industryCarouselTrack.style.transform = `translateX(${scrollValue}%)`;
+            
+            const dots = industryIndicatorsContainer.querySelectorAll('.industry-indicator-dot');
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === industryCurrentSlide);
+            });
+        }
+
+        function industryNextSlide() {
+            industryCurrentSlide = (industryCurrentSlide + 1) % industryTotalSlides;
+            updateIndustryCarousel();
+        }
+
+        function industryPrevSlide() {
+            industryCurrentSlide = (industryCurrentSlide - 1 + industryTotalSlides) % industryTotalSlides;
+            updateIndustryCarousel();
+        }
+
+        function startIndustryCarousel() {
+            industryCarouselTimer = setInterval(industryNextSlide, 5000);
+        }
+
+        industryControlPrev.addEventListener('click', industryPrevSlide);
+        industryControlNext.addEventListener('click', industryNextSlide);
+
+        const industryCarouselWrapper = document.querySelector('.industry-carousel-wrapper');
+        industryCarouselWrapper.addEventListener('mouseenter', () => clearInterval(industryCarouselTimer));
+        industryCarouselWrapper.addEventListener('mouseleave', startIndustryCarousel);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            generateIndustryIndicators();
+            updateIndustryCarousel();
+            startIndustryCarousel();
+        });
+    </script>
+</body>
+</html>
+<div class="mb-16">
+    <div class="main-wrapper">
+        <!-- 左侧轮播图部分 -->
+        <div class="image-slider-wrapper">
+            <div class="image-display">
+                
+                <div class="jingan-carousel-slide">
+                                <img src="228.png" alt="静安项目图片1">
+                </div>
+
+                
+            </div>
+            <button class="slide-control control-back" id="backBtn">&lt;</button>
+            <button class="slide-control control-forward" id="forwardBtn">&gt;</button>
+        </div>
+
+        <!-- 右侧文本块（含橙色标题+底色） -->
+        <div class="description-section">
+            <h3 class="text-2xl font-bold mb-6 orange-title">东方资产</h3>
+
+
+      
+      <div class="project-highlights">
+        <p>成立于1999年，是经国务院批准，由财政部、全国社保基金理事会共同发起设立的中央金融企业，是中国四大国有金融资产管理公司之一，累计支持国央企资产盘活近 500 亿元。</p>
+        <p>合作经历：</p>
+        <p>泰兴广源公司纾困项目（AMC+代建）该项目是泰兴市重点的房地产纾困项目，项目公司由泰兴法院接管并指定管理人。为推动项目资产盘活，金地携手战略合作伙伴东方资产共同参与：东方资产负责投资盘活，金地负责项目经营及品质提升。通过“AMC+代建”模式为泰兴市政府纾困解难,有效化解房地产项目风险。 </p>
+        
+        
+      </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    /* 主容器 - 左右并列，高度对齐 */
+    .main-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem; /* 两侧间距 */
+        padding: 0 1rem;
+        max-width: 1400px;
+        margin: 0 auto;
+        align-items: stretch; /* 强制两侧高度一致 */
+    }
+
+    /* 左侧轮播图容器 - 占比50% */
+    .image-slider-wrapper {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+        margin-top: 0; /* 移除负margin，修复对齐 */
+    }
+
+    /* 轮播图显示区域 - 固定高度，与右侧文本块匹配 */
+    .image-display {
+        width: 100%;
+        height: 450px; /* 与右侧文本块高度协调 */
+        overflow: hidden;
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .image-track {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        transition: transform 0.5s ease-in-out;
+    }
+
+    .slide-item {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+    }
+
+    .slide-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* 图片填满容器，避免留白 */
+    }
+
+    /* 轮播按钮优化 */
+    .slide-control {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255,255,255,0.8);
+        color: #333;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 10;
+        transition: all 0.3s;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .slide-control:hover {
+        background-color: white;
+    }
+
+    .control-back {
+        left: 10px;
+    }
+
+    .control-forward {
+        right: 10px;
+    }
+
+    /* 右侧文本块 - 带底色，标题橙色 */
+    .description-section {
+        flex: 1;
+        min-width: 300px;
+        background: #f5f5f5; /* 浅灰色底色 */
+        padding: 2.5rem; /* 充足内边距，避免文字拥挤 */
+        border-radius: 8px; /* 圆角与轮播图呼应 */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+
+    /* 橙色标题样式 */
+    .orange-title {
+        color: #FF7A00; /* 橙色标题 */
+        line-height: 1.3; /* 优化行高 */
+    }
+
+    /* 正文文字样式 */
+    .description-section p {
+        font-size: 16px;
+        line-height: 1.8;
+        color: #333;
+        margin-bottom: 1.2rem;
+    }
+
+    /* 响应式适配 - 小屏幕堆叠 */
+    @media (max-width: 768px) {
+        .main-wrapper {
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+        
+        .image-display, .description-section {
+            height: auto; /* 小屏幕自适应高度 */
+        }
+        
+        .image-display {
+            min-height: 300px;
+        }
+        
+        .description-section {
+            padding: 1.5rem;
+        }
+        
+        .orange-title {
+            font-size: 1.5rem; /* 小屏幕标题缩小 */
+        }
+    }
+</style>
+
+<script>
+    // 轮播功能保持完整，变量命名独立
+    const imageTrack = document.getElementById('imageTrack');
+    const backBtn = document.getElementById('backBtn');
+    const forwardBtn = document.getElementById('forwardBtn');
+    const totalImages = 3;
+    let activeIndex = 0;
+    let autoRotateTimer;
+
+    function setActiveSlide(position) {
+        if (position < 0) position = totalImages - 1;
+        if (position >= totalImages) position = 0;
+        activeIndex = position;
+        const translateValue = -activeIndex * 100;
+        imageTrack.style.transform = `translateX(${translateValue}%)`;
+    }
+
+    function showNextImage() {
+        setActiveSlide(activeIndex + 1);
+    }
+
+    function showPrevImage() {
+        setActiveSlide(activeIndex - 1);
+    }
+
+    function initiateAutoRotate() {
+        autoRotateTimer = setInterval(showNextImage, 4000);
+    }
+
+    backBtn.addEventListener('click', showPrevImage);
+    forwardBtn.addEventListener('click', showNextImage);
+
+    const sliderWrapper = document.querySelector('.image-slider-wrapper');
+    sliderWrapper.addEventListener('mouseenter', () => clearInterval(autoRotateTimer));
+    sliderWrapper.addEventListener('mouseleave', initiateAutoRotate);
+
+    document.addEventListener('DOMContentLoaded', () => {
+        setActiveSlide(0);
+        initiateAutoRotate();
+    });
+</script>
                         
                       
             
