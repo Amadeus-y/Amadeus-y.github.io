@@ -373,7 +373,7 @@
                     <a href="#overview" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">企业概览</a>
                     <a href="#business" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">业务结构</a>
                     <a href="#performance" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">经营实力</a>
-                    <a href="#quanguo" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">全国布局</a>
+                    <a href="#quanguo" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">公司布局</a>
                     <a href="#投资能力" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">投资能力</a>
                     <a href="#经营表现" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">经营表现</a>
                     <a href="#提效能力" class="text-gray-600 hover:text-orange-600 transition-colors duration-200 font-medium">提效能力</a>
@@ -815,11 +815,11 @@
   </script>
 </body>
 </html>
-    <!-- 全国布局 -->
+    <!-- 公司布局 -->
 <section id="quanguo" class="py-20 bg-gray-50">
   <div class="container mx-auto px-6">
     <div class="text-center mb-16">
-      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">全国布局</h2>
+      <h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-8">华东地区公司城市布局</h2>
       <!-- 动态描述文字区域 -->
       <p id="jdNationwideDesc" class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
         2002年首次进入上海，持续开发了76个项目，在上海嘉定、青浦、松江、打造多个标杆项目
@@ -1169,8 +1169,8 @@
         <section id="提效能力" class="py-20">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8">提效能力</h2>
         
-        <p class="text-gray-600 leading-relaxed text-center">经营团队发挥在各城市的深耕优势，持续开发提效，开发效率排名行业前列</p>
-        <p class="text-gray-600 leading-relaxed text-center mb-8">2022年以来，上海项目首开周期平均6.6个月，保持在城市20%分位</p>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center">经营团队发挥在各城市的深耕优势，持续开发提效，开发效率排名行业前列</p>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center mb-8">2022年以来，上海项目首开周期平均6.6个月，保持在城市20%分位</p>
         <div class="grid grid-cols-2 gap-4">
         <img src="17.png" alt="图片1" class="my-4 w-full h-[500px] object-contain" >
         <img src="204.png" alt="图片2" class="my-4 w-full h-[500px] object-contain">
@@ -1178,7 +1178,7 @@
 
         <section id="产品能力" class="py-20">
         <h2 class="text-4xl md:text-5xl font-bold text-gray-900 text-center mb-8">产品能力</h2>
-        <p class="text-gray-600 leading-relaxed text-center">44个国际设计大奖、19个国内权威奖项、3项国家省市级认证</p>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto text-center">44个国际设计大奖、19个国内权威奖项、3项国家省市级认证</p>
         <section class="py-16 px-6">
   <div class="max-w-7xl mx-auto">
     <!-- 第一行：克而瑞 + 4张图 -->
@@ -1534,8 +1534,8 @@
 /* 左侧轮播容器 */
 .carousel-container {
   position: relative;
-  width: 600px;
-  height: 450px;
+  width: 100%;
+  height: 600px;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -1550,7 +1550,7 @@
 .carousel-images {
   display: flex;
   transition: transform 0.5s ease-in-out;
-  height: 800px; /* 固定轮播高度，确保右侧文字块对齐 */
+  height: 100%; /* 固定轮播高度，确保右侧文字块对齐 */
 }
 
 .carousel-images img {
@@ -1818,10 +1818,7 @@ class Carousel {
 
 // 初始化轮播图
 new Carousel("#projectCarousel", [
-  "199.jpg", "200.jpg", "201.jpg", "202.jpg", 
-  "203.jpg", "204.jpg", "205.jpg", "206.jpg", 
-  "207.jpg", "208.jpg", "209.jpg", "210.jpg", 
-  "211.jpg", "212.jpg"
+  "199.jpg", "200.jpg", "201.jpg",  "203.jpg",  "205.jpg",  "207.jpg", "208.jpg", "209.jpg", "210.jpg", "211.jpg", "212.jpg"
 ]);
 </script>
 
